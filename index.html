@@ -572,73 +572,157 @@
        SERVIZI
     ============================================= */
     .services {
-      padding: 7rem 0;
-      background: var(--ivory);
-    }
+    padding: 8rem 0 7rem;
+    background: var(--white);
+  }
 
-    .services__header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
+  .services__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
 
+  /* Intro text centrato sotto il titolo */
+  .services__intro {
+    max-width: 620px;
+    margin: 0 auto 4rem;
+    color: var(--text-light);
+    font-size: 0.97rem;
+    font-weight: 300;
+    line-height: 1.85;
+    text-align: center;
+  }
+
+  /* Linea separatrice tra intro e griglia */
+  .services__rule {
+    width: 100%;
+    height: 1px;
+    background: rgba(155,123,82,0.18);
+    border: none;
+    margin: 0;
+  }
+
+  /* Griglia 4 colonne – zero gap, divisori via border */
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  /* Ogni servizio: nessuna card, solo testo centrato + divisori sottili */
+  .service-item {
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    border-right: 1px solid rgba(155,123,82,0.15);
+    border-bottom: 1px solid rgba(155,123,82,0.15);
+    transition: background var(--transition);
+  }
+
+  .service-item:hover {
+    background: rgba(247,242,234,0.7);
+  }
+
+  /* Desktop 4 col: rimuovi bordo destro dall'ultima colonna */
+  .service-item:nth-child(4n) {
+    border-right: none;
+  }
+
+  /* Desktop 4 col: rimuovi bordo inferiore dall'ultima riga (5-8 di 8) */
+  .service-item:nth-child(n+5) {
+    border-bottom: none;
+  }
+
+  /* Icona SVG grande centrata */
+  .service-item__icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 2.2rem;
+    color: var(--antracite);
+    display: block;
+    transition: color var(--transition), transform var(--transition);
+    flex-shrink: 0;
+  }
+
+  .service-item:hover .service-item__icon {
+    color: var(--warm-brown);
+    transform: translateY(-4px);
+  }
+
+  /* Titolo in maiuscolo spaziato – stile etichetta di atelier */
+  .service-item__title {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--antracite);
+    margin-bottom: 1.1rem;
+    line-height: 1.65;
+  }
+
+  /* Descrizione leggera centrata */
+  .service-item__desc {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.82;
+    font-weight: 300;
+    max-width: 230px;
+    margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE SERVIZI ────────────────────────── */
+
+  /* Tablet ≤ 900px → 2 colonne */
+  @media (max-width: 900px) {
     .services__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
     }
+    /* Ripristina bordi annullati dal desktop, poi applica regole 2-col */
+    .service-item:nth-child(4n) {
+      border-right: 1px solid rgba(155,123,82,0.15);
+    }
+    .service-item:nth-child(n+5) {
+      border-bottom: 1px solid rgba(155,123,82,0.15);
+    }
+    .service-item:nth-child(2n) {
+      border-right: none;
+    }
+    .service-item:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+  }
 
-    .service-card {
-      background: var(--white);
-      padding: 2.4rem 2rem;
-      border-radius: 2px;
-      border: 1px solid rgba(155,123,82,0.12);
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      position: relative;
-      overflow: hidden;
+  /* Mobile ≤ 600px → 1 colonna */
+  @media (max-width: 600px) {
+    .services {
+      padding: 6rem 0 5rem;
     }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 0;
-      background: var(--gold);
-      transition: height var(--transition);
+    .services__grid {
+      grid-template-columns: 1fr;
     }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(196,164,86,0.3);
+    /* Reset tutte le eccezioni precedenti */
+    .service-item:nth-child(4n),
+    .service-item:nth-child(2n) {
+      border-right: 1px solid rgba(155,123,82,0.15);
     }
-
-    .service-card:hover::before {
-      height: 100%;
+    .service-item:nth-child(n+5),
+    .service-item:nth-last-child(-n+2) {
+      border-bottom: 1px solid rgba(155,123,82,0.15);
     }
-
-    .service-card__icon {
-      width: 44px;
-      height: 44px;
-      margin-bottom: 1.4rem;
-      color: var(--warm-brown);
+    /* 1-col: nessun bordo destro su nessun item */
+    .service-item:nth-child(n) {
+      border-right: none;
     }
-
-    .service-card__title {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 400;
-      color: var(--antracite);
-      margin-bottom: 0.8rem;
+    .service-item:last-child {
+      border-bottom: none;
     }
-
-    .service-card__desc {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.75;
-      font-weight: 300;
+    .service-item {
+      padding: 3.2rem 1.5rem 2.8rem;
     }
+    .service-item__desc {
+      max-width: 100%;
+    }
+  }
 
     /* =============================================
        GALLERIA
@@ -1447,139 +1531,285 @@
        3. SERVIZI – 8 card aggiornate
   ============================================= -->
   <section class="services" id="servizi" aria-label="I nostri servizi">
-    <div class="container">
+  <div class="container">
 
-      <div class="services__header reveal">
-        <span class="section-label">Cosa facciamo</span>
-        <h2 class="section-title">I nostri <em>servizi</em></h2>
-        <div class="divider divider--center"></div>
-        <p style="max-width:620px; margin:0 auto; color:var(--text-light); font-size:0.97rem; font-weight:300;">
-          In Sartoria Semolini mettiamo a disposizione esperienza manifatturiera, consulenza sartoriale e soluzioni personalizzate per privati e aziende. Ogni servizio nasce con un unico obiettivo: offrire qualità, affidabilità e stile autenticamente Made in Italy.
-        </p>
-      </div>
-
-      <div class="services__grid">
-
-        <!-- Card 1 – Vendita al dettaglio uomo -->
-        <article class="service-card reveal reveal-delay-1">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: abito/vestito uomo -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Vendita al dettaglio uomo</h3>
-          <p class="service-card__desc">
-            Nei nostri punti vendita proponiamo collezioni di abbigliamento uomo sportivo ed elegante, selezionate per accompagnare ogni momento della giornata con stile, comfort e qualità sartoriale.
-          </p>
-        </article>
-
-        <!-- Card 2 – Servizio su misura e cerimonia -->
-        <article class="service-card reveal reveal-delay-2">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: diamante/star cerimonia -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Servizio su misura e cerimonia</h3>
-          <p class="service-card__desc">
-            All'interno dei nostri store offriamo un servizio su misura dedicato ad abiti da giorno, capi business e occasioni speciali. Realizziamo inoltre l'intera collezione cerimonia e sposo, con percorsi personalizzati pensati per valorizzare ogni cliente nel giorno più importante.
-          </p>
-        </article>
-
-        <!-- Card 3 – Divise aziendali sartoriali -->
-        <article class="service-card reveal reveal-delay-3">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: cravatta/business -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M8 3 6 21l6-3 6 3-2-18z"/><line x1="6" y1="10" x2="18" y2="10"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Divise aziendali sartoriali</h3>
-          <p class="service-card__desc">
-            Progettiamo e realizziamo divise aziendali eleganti, funzionali e coerenti con l'identità del brand. Ogni uniforme viene studiata per rappresentare al meglio l'immagine dell'azienda.
-          </p>
-        </article>
-
-        <!-- Card 4 – Su misura a domicilio -->
-        <article class="service-card reveal reveal-delay-4">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: casa -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Su misura a domicilio</h3>
-          <p class="service-card__desc">
-            Portiamo l'esperienza sartoriale direttamente a casa o in ufficio del cliente. Un servizio esclusivo che comprende consulenza, presa misure e scelta dei tessuti, pensato per chi desidera comodità senza rinunciare all'eccellenza.
-          </p>
-        </article>
-
-        <!-- Card 5 – Divise per hotel e hospitality -->
-        <article class="service-card reveal reveal-delay-5">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: chiave hotel -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Divise per hotel e hospitality</h3>
-          <p class="service-card__desc">
-            Realizziamo uniformi professionali per hotel, resort e strutture ricettive, con particolare attenzione a eleganza, comfort e resistenza. Soluzioni personalizzate per reception, concierge, sala e management.
-          </p>
-        </article>
-
-        <!-- Card 6 – Supporto su misura per sartorie esterne -->
-        <article class="service-card reveal reveal-delay-6">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: collaborazione/handshake -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Supporto su misura per sartorie esterne</h3>
-          <p class="service-card__desc">
-            Collaboriamo con boutique e sartorie che non dispongono di un laboratorio interno, offrendo un servizio completo di realizzazione su misura con standard elevati e massima riservatezza professionale.
-          </p>
-        </article>
-
-        <!-- Card 7 – Produzione conto terzi Made in Italy -->
-        <article class="service-card reveal reveal-delay-7">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: fabbrica/produzione -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Produzione conto terzi Made in Italy</h3>
-          <p class="service-card__desc">
-            Siamo partner produttivi per aziende e brand che cercano una manifattura affidabile. Gestiamo produzioni a façon, sia in piccole che grandi quantità, garantendo qualità artigianale e filiera Made in Italy.
-          </p>
-        </article>
-
-        <!-- Card 8 – Distribuzione commerciale e private label -->
-        <article class="service-card reveal reveal-delay-8">
-          <div class="service-card__icon" aria-hidden="true">
-            <!-- Icona: distribuzione/tag -->
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-              <line x1="7" y1="7" x2="7.01" y2="7"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">Distribuzione commerciale e private label</h3>
-          <p class="service-card__desc">
-            Distribuiamo le nostre linee di abbigliamento a partner commerciali selezionati, con la possibilità di sviluppare progetti personalizzati in private label, dalla produzione all'identità di collezione.
-          </p>
-        </article>
-
-      </div>
+    <!-- Intestazione sezione -->
+    <div class="services__header reveal">
+      <span class="section-label">Cosa facciamo</span>
+      <h2 class="section-title">I nostri <em>servizi</em></h2>
+      <div class="divider divider--center"></div>
     </div>
-  </section>
+
+    <!-- Testo introduttivo -->
+    <p class="services__intro reveal">
+      In Sartoria Semolini mettiamo a disposizione esperienza manifatturiera,
+      consulenza sartoriale e soluzioni personalizzate per privati e aziende.
+      Ogni servizio nasce con un unico obiettivo: offrire qualità, affidabilità
+      e stile autenticamente Made in Italy.
+    </p>
+
+    <!-- Linea separatrice editoriale -->
+    <hr class="services__rule" aria-hidden="true" />
+
+    <!-- Griglia 8 servizi -->
+    <div class="services__grid">
 
 
+      <!-- ─── 1. VENDITA AL DETTAGLIO UOMO ───────────────────
+           Icona: giacca uomo – silhouette frontale con bavero,
+           bottoni e taschini.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-1">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- corpo giacca -->
+          <path d="M6 40 L6 15 L13 5 Q22 12 31 5 L38 15 L38 40 Z"/>
+          <!-- piega bavero sinistro -->
+          <line x1="13" y1="5" x2="19.5" y2="19"/>
+          <!-- piega bavero destro -->
+          <line x1="31" y1="5" x2="24.5" y2="19"/>
+          <!-- linea centrale (abbottonatura) -->
+          <line x1="22" y1="19" x2="22" y2="39"/>
+          <!-- bottoni -->
+          <circle cx="22" cy="25" r="1"   fill="currentColor" stroke="none"/>
+          <circle cx="22" cy="31" r="1"   fill="currentColor" stroke="none"/>
+          <circle cx="22" cy="37" r="0.8" fill="currentColor" stroke="none"/>
+          <!-- taschino sinistro -->
+          <path d="M9 30 L16 30 L16 34 L9 34"/>
+          <!-- taschino destro -->
+          <path d="M28 30 L35 30 L35 34 L28 34"/>
+        </svg>
+        <h3 class="service-item__title">Vendita al dettaglio uomo</h3>
+        <p class="service-item__desc">
+          Collezioni di abbigliamento uomo sportivo ed elegante, selezionate
+          per accompagnare ogni momento della giornata con stile,
+          comfort e qualità sartoriale.
+        </p>
+      </article>
+
+
+      <!-- ─── 2. SERVIZIO SU MISURA E CERIMONIA ──────────────
+           Icona: metro da sarta – custodia con nastro esteso
+           e segni di misurazione.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-2">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- custodia metro (rettangolo arrotondato) -->
+          <rect x="4" y="15" width="22" height="14" rx="3"/>
+          <!-- ghiera interna -->
+          <circle cx="15" cy="22" r="5"/>
+          <circle cx="15" cy="22" r="1.5" fill="currentColor" stroke="none"/>
+          <!-- nastro che fuoriesce a destra -->
+          <path d="M26 19 L40 19 L40 25 L26 25"/>
+          <!-- segni di misura sul nastro -->
+          <line x1="29"   y1="19" x2="29"   y2="21.5"/>
+          <line x1="32"   y1="19" x2="32"   y2="21.5"/>
+          <line x1="35"   y1="19" x2="35"   y2="21.5"/>
+          <line x1="38"   y1="19" x2="38"   y2="21.5"/>
+          <line x1="30.5" y1="19" x2="30.5" y2="20.5"/>
+          <line x1="33.5" y1="19" x2="33.5" y2="20.5"/>
+          <line x1="36.5" y1="19" x2="36.5" y2="20.5"/>
+        </svg>
+        <h3 class="service-item__title">Servizio su misura e cerimonia</h3>
+        <p class="service-item__desc">
+          Abiti da giorno, capi business e occasioni speciali.
+          L'intera collezione cerimonia e sposo con percorsi
+          personalizzati per valorizzare ogni cliente.
+        </p>
+      </article>
+
+
+      <!-- ─── 3. DIVISE AZIENDALI SARTORIALI ─────────────────
+           Icona: etichetta abbigliamento – cartellino a punta
+           con foro, corda e righe di testo stilizzate.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-3">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- cartellino: rettangolo con punta in basso -->
+          <path d="M12 5 L32 5 L32 30 L22 39 L12 30 Z"/>
+          <!-- foro in alto -->
+          <circle cx="22" cy="11" r="2.5"/>
+          <!-- corda dal foro verso l'alto -->
+          <path d="M22 8.5 Q20 4 16 3"/>
+          <!-- linee testo stilizzate -->
+          <line x1="16" y1="19" x2="28" y2="19"/>
+          <line x1="16" y1="24" x2="28" y2="24"/>
+          <line x1="18" y1="29" x2="26" y2="29"/>
+        </svg>
+        <h3 class="service-item__title">Divise aziendali sartoriali</h3>
+        <p class="service-item__desc">
+          Uniformi eleganti, funzionali e coerenti con l'identità
+          del brand. Ogni divisa viene studiata per rappresentare
+          al meglio l'immagine dell'azienda.
+        </p>
+      </article>
+
+
+      <!-- ─── 4. SU MISURA A DOMICILIO ───────────────────────
+           Icona: ago con filo – ago diagonale con occhiello
+           e curva di filo che scende elegante.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-4">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- corpo dell'ago (diagonale) -->
+          <path d="M11 37 L33 9"/>
+          <!-- occhiello dell'ago (ellisse ruotata) -->
+          <ellipse cx="31.5" cy="10.5" rx="3" ry="1.5"
+                   transform="rotate(-52 31.5 10.5)"/>
+          <!-- punta acuminata (già inclusa nel path) -->
+          <!-- filo: parte dall'occhiello, curva elegante verso il basso -->
+          <path d="M35 8 Q41 6 39 18 Q37 30 27 37 Q19 43 8 39"/>
+        </svg>
+        <h3 class="service-item__title">Su misura a domicilio</h3>
+        <p class="service-item__desc">
+          L'esperienza sartoriale direttamente a casa o in ufficio.
+          Consulenza, presa misure e scelta dei tessuti per chi
+          desidera comodità senza rinunciare all'eccellenza.
+        </p>
+      </article>
+
+
+      <!-- ─── 5. DIVISE PER HOTEL E HOSPITALITY ──────────────
+           Icona: rocchetto di filo – forma a clessidra vista
+           di tre quarti con avvolgimenti di filo.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-5">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- flangia superiore -->
+          <ellipse cx="22" cy="10" rx="14" ry="4.5"/>
+          <!-- flangia inferiore -->
+          <ellipse cx="22" cy="34" rx="14" ry="4.5"/>
+          <!-- lati a clessidra (restringimento centrale) -->
+          <path d="M8  10 Q11.5 22 8  34"/>
+          <path d="M36 10 Q32.5 22 36 34"/>
+          <!-- avvolgimenti di filo (ellissi intermedie) -->
+          <ellipse cx="22" cy="18" rx="9.5" ry="2.8"/>
+          <ellipse cx="22" cy="26" rx="9.5" ry="2.8"/>
+        </svg>
+        <h3 class="service-item__title">Divise per hotel e hospitality</h3>
+        <p class="service-item__desc">
+          Uniformi per hotel, resort e strutture ricettive.
+          Eleganza, comfort e resistenza per reception, concierge,
+          sala e management.
+        </p>
+      </article>
+
+
+      <!-- ─── 6. SUPPORTO PER SARTORIE ESTERNE ───────────────
+           Icona: forbici da sarto – due anelli e lame
+           che si incrociano al perno.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-6">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- anello manico superiore -->
+          <circle cx="12" cy="12" r="6"/>
+          <!-- anello manico inferiore -->
+          <circle cx="22" cy="12" r="6"/>
+          <!-- lama superiore dall'anello alla punta -->
+          <path d="M16 16.5 L39 33"/>
+          <!-- lama inferiore dall'anello alla punta -->
+          <path d="M19 16.5 L39 26"/>
+          <!-- perno di rotazione -->
+          <circle cx="30" cy="23.5" r="2"
+                  fill="currentColor" stroke="none"/>
+        </svg>
+        <h3 class="service-item__title">Supporto per sartorie esterne</h3>
+        <p class="service-item__desc">
+          Realizzazione su misura per boutique e sartorie senza
+          laboratorio interno. Standard elevati e massima
+          riservatezza professionale.
+        </p>
+      </article>
+
+
+      <!-- ─── 7. PRODUZIONE CONTO TERZI MADE IN ITALY ─────────
+           Icona: macchina da cucire – braccio, corpo, volano
+           e navetta stilizzati.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-7">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- piano/base -->
+          <line x1="3" y1="38" x2="41" y2="38"/>
+          <!-- corpo macchina -->
+          <rect x="8" y="25" width="24" height="13" rx="1.5"/>
+          <!-- braccio/testa (parte superiore aggettante) -->
+          <path d="M8 25 L8 15 Q8 9 15 9 L30 9 Q38 9 38 16 L38 25"/>
+          <!-- barra ago (verticale, sotto la testa) -->
+          <line x1="14" y1="25" x2="14" y2="40"/>
+          <!-- volano (destra) -->
+          <circle cx="33" cy="29" r="5"/>
+          <circle cx="33" cy="29" r="1.8" fill="currentColor" stroke="none"/>
+          <!-- portarocchetto (sommità) -->
+          <circle cx="22" cy="9" r="3"/>
+          <!-- filo dal rocchetto all'ago -->
+          <path d="M22 12 Q18 18 14 22"/>
+        </svg>
+        <h3 class="service-item__title">Produzione conto terzi Made in Italy</h3>
+        <p class="service-item__desc">
+          Partner produttivi per aziende e brand.
+          Produzioni a façon in piccole e grandi quantità,
+          qualità artigianale e filiera italiana certificata.
+        </p>
+      </article>
+
+
+      <!-- ─── 8. DISTRIBUZIONE E PRIVATE LABEL ───────────────
+           Icona: rotolo di tessuto – cilindro orizzontale
+           visto di tre quarti con strati di tessuto.
+      ─────────────────────────────────────────────────────── -->
+      <article class="service-item reveal reveal-delay-8">
+        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
+             stroke="currentColor" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <!-- testa destra del cilindro (ellisse frontale) -->
+          <ellipse cx="34" cy="22" rx="4" ry="13"/>
+          <!-- testa sinistra (ellisse posteriore) -->
+          <ellipse cx="10" cy="22" rx="4" ry="13"/>
+          <!-- bordo superiore del cilindro -->
+          <line x1="10" y1="9"  x2="34" y2="9"/>
+          <!-- bordo inferiore del cilindro -->
+          <line x1="10" y1="35" x2="34" y2="35"/>
+          <!-- strati di tessuto interni (righe orizzontali) -->
+          <line x1="10" y1="15" x2="34" y2="15"/>
+          <line x1="10" y1="22" x2="34" y2="22"/>
+          <line x1="10" y1="29" x2="34" y2="29"/>
+          <!-- anima centrale (perno passante) -->
+          <line x1="6" y1="22" x2="38" y2="22"
+                stroke-width="0.7" stroke-dasharray="2 2"/>
+        </svg>
+        <h3 class="service-item__title">Distribuzione e private label</h3>
+        <p class="service-item__desc">
+          Linee di abbigliamento a partner selezionati e progetti
+          in private label dalla produzione all'identità
+          di collezione.
+        </p>
+      </article>
+
+
+    </div><!-- /services__grid -->
+  </div><!-- /container -->
+</section>
   <!-- =============================================
        4. GALLERIA
        Invariata — i placeholder vengono sostituiti con img reali.
@@ -1918,12 +2148,6 @@
               Per appuntamenti su misura, cerimonia o servizi a domicilio è consigliato chiamare o scrivere su WhatsApp per concordare i tempi.
             </p>
 
-            <p>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
-              Preventivi gratuiti e senza impegno. Accettiamo pagamenti in contanti e con carta.
-            </p>
           </div>
         </div>
 
@@ -2054,7 +2278,7 @@
               <div class="contact__item-label">Seguici sui social</div>
               <!-- Sostituisci gli href con i link reali alle pagine social -->
               <div class="contact__social">
-                <a href="https://www.instagram.com/sartoriasemolini" target="_blank" rel="noopener noreferrer" aria-label="Instagram Sartoria Semolini">
+                <a href="https://www.instagram.com/sartoriasemolini/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Sartoria Semolini">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                     <circle cx="12" cy="12" r="5"/>
@@ -2107,20 +2331,16 @@
              4. Sostituisci il div.contact__map con il codice <iframe> fornito da Google
         -->
         <div class="reveal reveal-delay-2">
-          <div class="contact__map" role="img" aria-label="Mappa posizione sartoria – da aggiungere">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--warm-brown)" stroke-width="1.2" aria-hidden="true">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            <strong style="color:var(--antracite);font-family:var(--font-display);font-size:1.1rem;">Sartoria Semolini</strong>
-            <span style="font-size:0.82rem; color:var(--text-mid);">
-              Via I Maggio, 6 — Foiano della Chiana (AR)<br>
-              Corso Cavour, 1 — Orvieto (TR)
-            </span>
-            <span style="font-size:0.72rem; color:var(--text-light); max-width:240px;">
-              Incorpora qui la mappa di Google Maps:<br>
-              Condividi → Incorpora una mappa → Copia iframe
-            </span>
+          <div class="contact__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2746.1253724464905!2d11.823677300000007!3d43.27254069999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132be46a7e0bf609%3A0x66658eae24474749!2sVia%20I%20Maggio%2C%206%2C%2052045%20Foiano%20della%20Chiana%20AR!5e1!3m2!1sit!2sit!4v1778431188548!5m2!1sit!2sit"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
 
