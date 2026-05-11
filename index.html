@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
   <style>
     /* =============================================
        RESET & BASE
@@ -110,6 +110,15 @@
     .section-title em {
       font-style: italic;
       color: var(--warm-brown);
+    }
+
+    .hero__title-logo {
+      font-family: 'Italianno', cursive;
+      font-size: clamp(4.5rem, 9vw, 8rem);
+      font-weight: 400;
+      color: var(--ivory);
+      line-height: 1;
+      letter-spacing: 0.02em;
     }
 
     .divider {
@@ -218,12 +227,24 @@
     }
 
     .nav__logo {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--ivory);
-      letter-spacing: 0.06em;
-      transition: color var(--transition);
+    display: flex;
+    align-items: center;
+    }
+
+    .nav__logo-img {
+      height: 55px;
+      width: auto;
+      transition: opacity var(--transition);
+    }
+
+    .nav__logo-img:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+      .nav__logo-img {
+        height: 42px;
+      }
     }
 
     .nav.scrolled .nav__logo {
@@ -1395,8 +1416,9 @@
   ============================================= -->
   <nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
     <div class="container nav__inner">
-      <a href="#home" class="nav__logo" aria-label="Sartoria Semolini – torna alla home">Sartoria Semolini</a>
-
+    <a href="#home" class="nav__logo" aria-label="Sartoria Semolini – torna alla home">
+      <img src="images/logo-semolini.jpg" alt="Sartoria Semolini Logo" class="nav__logo-img">
+    </a>
       <!-- Link desktop -->
       <ul class="nav__links" role="list">
         <li><a href="#storia">La nostra storia</a></li>
@@ -1441,9 +1463,8 @@
       <div class="hero__content">
         <p class="hero__eyebrow">Sartoria uomo · Made in Italy</p>
 
-        <h1 class="hero__title">
-          Sartoria<br>
-          <span>Semolini</span>
+        <h1 class="hero__title hero__title-logo">
+          Sartoria Semolini
         </h1>
 
         <!-- MODIFICA 1: frase hero aggiornata -->
