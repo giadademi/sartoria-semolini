@@ -123,11 +123,11 @@
     }
 
    .hero__title-image {
-  margin-bottom: 2rem;
-  width: min(700px, 85vw);
-}
+      margin-bottom: 2rem;
+      width: min(560px, 78vw);
+    }
 
-     .hero__logo {
+    .hero__logo {
       width: 100%;
       height: auto;
       display: block;
@@ -246,11 +246,13 @@
     }
 
     .nav__logo-img {
-  height: 55px;
-  width: auto;
-  transition: opacity var(--transition);
-  filter: brightness(0) invert(1);
-}
+      width: 210px;
+      height: auto;
+      max-height: 62px;
+      object-fit: contain;
+      transition: opacity var(--transition), filter var(--transition);
+      filter: brightness(0) invert(1);
+    }
     .nav.scrolled .nav__logo-img {
   filter: brightness(0);
 }
@@ -261,7 +263,8 @@
 
     @media (max-width: 600px) {
       .nav__logo-img {
-        height: 42px;
+        width: 150px;
+        height: auto;
       }
     }
 
@@ -1435,7 +1438,7 @@
   <nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
     <div class="container nav__inner">
     <a href="#home" class="nav__logo" aria-label="Sartoria Semolini – torna alla home">
-      <img src="images/logo-semolini.png" alt="Sartoria Semolini Logo" class="nav__logo-img">
+      <img src="images/logo-semolini-trasparente.png?v=2" alt="Sartoria Semolini Logo" class="nav__logo-img">
     </a>
       <!-- Link desktop -->
       <ul class="nav__links" role="list">
@@ -1482,7 +1485,7 @@
         <p class="hero__eyebrow">Sartoria uomo · Made in Italy</p>
 
         <h1 class="hero__title-image">
-          <img src="images/logo-semolini.png"
+          <img src="images/logo-semolini-trasparente.png?v=2"
               alt="Sartoria Semolini"
               class="hero__logo">
         </h1>
