@@ -122,16 +122,18 @@
       letter-spacing: 0.02em;
     }
 
-    .hero__title-image {
-    margin-bottom: 2rem;
-  }
+   .hero__title-image {
+  margin-bottom: 2rem;
+  width: min(700px, 85vw);
+}
 
-  .hero__logo {
-    width: min(700px, 85vw);
-    height: auto;
-    display: block;
-    filter: brightness(1.35);
-  }
+     .hero__logo {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
 
     .divider {
       width: 48px;
