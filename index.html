@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- =============================================
-       SEO – META DESCRIPTION AGGIORNATA
+       SEO – META DESCRIPTION
   ============================================= -->
-  <meta name="description" content="Sartoria Semolini: abiti uomo, servizio su misura, cerimonia, divise aziendali sartoriali e produzione conto terzi Made in Italy a Foiano della Chiana e Orvieto." />
+  <meta name="description" content="Sartoria Semolini: abiti e camicie su misura, cerimonia, divise aziendali sartoriali e produzione conto terzi Made in Italy a Foiano della Chiana e Orvieto." />
 
-  <title>Sartoria Semolini</title>
+  <title>Sartoria Semolini | Abiti e Camicie su Misura</title>
 
   <!-- =============================================
        GOOGLE FONTS
        Cormorant Garamond = titoli raffinati
        Raleway             = corpo testo leggibile
+       Italianno           = logotipo corsivo
   ============================================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,6 +56,7 @@
 
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'Raleway', sans-serif;
+      --font-script:  'Italianno', cursive;
 
       --radius:       4px;
       --transition:   0.35s ease;
@@ -113,17 +115,8 @@
       color: var(--warm-brown);
     }
 
-    .hero__title-logo {
-      font-family: 'Italianno', cursive;
-      font-size: clamp(4.5rem, 9vw, 8rem);
-      font-weight: 400;
-      color: var(--ivory);
-      line-height: 1;
-      letter-spacing: 0.02em;
-    }
-
-   .hero__title-image {
-      margin-bottom: 2rem;
+    .hero__title-image {
+      margin-bottom: 1.4rem;
       width: min(560px, 78vw);
     }
 
@@ -241,8 +234,8 @@
     }
 
     .nav__logo {
-    display: flex;
-    align-items: center;
+      display: flex;
+      align-items: center;
     }
 
     .nav__logo-img {
@@ -253,9 +246,10 @@
       transition: opacity var(--transition), filter var(--transition);
       filter: brightness(0) invert(1);
     }
+
     .nav.scrolled .nav__logo-img {
-  filter: brightness(0);
-}
+      filter: brightness(0);
+    }
 
     .nav__logo-img:hover {
       opacity: 0.9;
@@ -268,21 +262,19 @@
       }
     }
 
-    .nav.scrolled .nav__logo {
-      color: var(--antracite);
-    }
-
     .nav__links {
       display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 1.35rem;
+      row-gap: 0.5rem;
+      flex-wrap: wrap;
       align-items: center;
     }
 
     .nav__links a {
-      font-size: 0.68rem;
+      font-size: 0.62rem;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: rgba(247,242,234,0.85);
       transition: color var(--transition);
@@ -344,7 +336,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
+      overflow-y: auto;
+      padding: 2rem 0;
     }
 
     .nav__mobile.open {
@@ -353,7 +347,7 @@
 
     .nav__mobile a {
       font-family: var(--font-display);
-      font-size: 1.85rem;
+      font-size: 1.6rem;
       font-weight: 300;
       color: var(--ivory);
       letter-spacing: 0.05em;
@@ -375,6 +369,8 @@
 
     /* =============================================
        HERO SECTION
+       Sfondo fotografico (collezione cerimonia) con
+       overlay scuro per garantire leggibilità del testo.
     ============================================= */
     .hero {
       position: relative;
@@ -382,7 +378,13 @@
       display: flex;
       align-items: center;
       overflow: hidden;
-      background: var(--logo-brown);
+      background-color: var(--logo-brown);
+      background-image:
+        linear-gradient(180deg, rgba(20,16,12,0.5) 0%, rgba(20,16,12,0.68) 55%, rgba(15,12,9,0.88) 100%),
+        url('images/hero-damascato-blu.jpg');
+      background-size: cover;
+      background-position: center 18%;
+      background-repeat: no-repeat;
     }
 
     /* Texture overlay pattern */
@@ -408,13 +410,13 @@
       z-index: 1;
     }
 
-    /* Warm vignette */
+    /* Vignetta calda */
     .hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 30% 60%, rgba(92,61,30,0.35) 0%, transparent 65%),
-                  radial-gradient(ellipse at 80% 20%, rgba(196,164,86,0.12) 0%, transparent 55%);
+      background: radial-gradient(ellipse at 30% 70%, rgba(92,61,30,0.3) 0%, transparent 65%),
+                  radial-gradient(ellipse at 80% 10%, rgba(196,164,86,0.1) 0%, transparent 55%);
       z-index: 1;
     }
 
@@ -446,30 +448,16 @@
       background: var(--gold);
     }
 
-    .hero__title {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--ivory);
-      margin-bottom: 1.6rem;
-      letter-spacing: 0.02em;
-    }
-
-    .hero__title span {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
     .hero__subtitle {
       font-family: var(--font-display);
       font-size: clamp(1.1rem, 2.5vw, 1.45rem);
       font-weight: 300;
       font-style: italic;
-      color: rgba(247,242,234,0.72);
+      color: rgba(247,242,234,0.82);
       margin-bottom: 3rem;
       max-width: 520px;
       line-height: 1.55;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.35);
     }
 
     .hero__buttons {
@@ -515,7 +503,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-      color: rgba(247,242,234,0.45);
+      color: rgba(247,242,234,0.55);
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -524,7 +512,7 @@
     .hero__scroll-arrow {
       width: 1px;
       height: 36px;
-      background: linear-gradient(to bottom, rgba(247,242,234,0.45), transparent);
+      background: linear-gradient(to bottom, rgba(247,242,234,0.55), transparent);
       animation: scrollPulse 2s ease-in-out infinite;
     }
 
@@ -562,13 +550,6 @@
       position: relative;
     }
 
-    /* ---- VIDEO STORIA ----
-         Per sostituire il video:
-         1. Carica il file MP4 nella cartella videos/
-         2. Il percorso attuale è: videos/storia-sartoria-semolini.mp4
-         3. Aggiorna l'attributo poster con il percorso di un fotogramma copertina
-            es: poster="images/storia-poster.jpg"
-    ---- */
     .story__video {
       width: 100%;
       aspect-ratio: 3/4;
@@ -614,160 +595,317 @@
        SERVIZI
     ============================================= */
     .services {
-    padding: 8rem 0 7rem;
-    background: var(--white);
-  }
+      padding: 8rem 0 7rem;
+      background: var(--white);
+    }
 
-  .services__header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-  }
+    .services__header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
 
-  /* Intro text centrato sotto il titolo */
-  .services__intro {
-    max-width: 620px;
-    margin: 0 auto 4rem;
-    color: var(--text-light);
-    font-size: 0.97rem;
-    font-weight: 300;
-    line-height: 1.85;
-    text-align: center;
-  }
+    .services__intro {
+      max-width: 620px;
+      margin: 0 auto 4rem;
+      color: var(--text-light);
+      font-size: 0.97rem;
+      font-weight: 300;
+      line-height: 1.85;
+      text-align: center;
+    }
 
-  /* Linea separatrice tra intro e griglia */
-  .services__rule {
-    width: 100%;
-    height: 1px;
-    background: rgba(155,123,82,0.18);
-    border: none;
-    margin: 0;
-  }
+    .services__rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(155,123,82,0.18);
+      border: none;
+      margin: 0;
+    }
 
-  /* Griglia 4 colonne – zero gap, divisori via border */
-  .services__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-
-  /* Ogni servizio: nessuna card, solo testo centrato + divisori sottili */
-  .service-item {
-    padding: 4rem 2rem 3.5rem;
-    text-align: center;
-    border-right: 1px solid rgba(155,123,82,0.15);
-    border-bottom: 1px solid rgba(155,123,82,0.15);
-    transition: background var(--transition);
-  }
-
-  .service-item:hover {
-    background: rgba(247,242,234,0.7);
-  }
-
-  /* Desktop 4 col: rimuovi bordo destro dall'ultima colonna */
-  .service-item:nth-child(4n) {
-    border-right: none;
-  }
-
-  /* Desktop 4 col: rimuovi bordo inferiore dall'ultima riga (5-8 di 8) */
-  .service-item:nth-child(n+5) {
-    border-bottom: none;
-  }
-
-  /* Icona SVG grande centrata */
-  .service-item__icon {
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 2.2rem;
-    color: var(--antracite);
-    display: block;
-    transition: color var(--transition), transform var(--transition);
-    flex-shrink: 0;
-  }
-
-  .service-item:hover .service-item__icon {
-    color: var(--warm-brown);
-    transform: translateY(-4px);
-  }
-
-  /* Titolo in maiuscolo spaziato – stile etichetta di atelier */
-  .service-item__title {
-    font-family: var(--font-body);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--antracite);
-    margin-bottom: 1.1rem;
-    line-height: 1.65;
-  }
-
-  /* Descrizione leggera centrata */
-  .service-item__desc {
-    font-family: var(--font-body);
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.82;
-    font-weight: 300;
-    max-width: 230px;
-    margin: 0 auto;
-  }
-
-  /* ── RESPONSIVE SERVIZI ────────────────────────── */
-
-  /* Tablet ≤ 900px → 2 colonne */
-  @media (max-width: 900px) {
     .services__grid {
-      grid-template-columns: repeat(2, 1fr);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
     }
-    /* Ripristina bordi annullati dal desktop, poi applica regole 2-col */
-    .service-item:nth-child(4n) {
-      border-right: 1px solid rgba(155,123,82,0.15);
-    }
-    .service-item:nth-child(n+5) {
-      border-bottom: 1px solid rgba(155,123,82,0.15);
-    }
-    .service-item:nth-child(2n) {
-      border-right: none;
-    }
-    .service-item:nth-last-child(-n+2) {
-      border-bottom: none;
-    }
-  }
 
-  /* Mobile ≤ 600px → 1 colonna */
-  @media (max-width: 600px) {
-    .services {
-      padding: 6rem 0 5rem;
-    }
-    .services__grid {
-      grid-template-columns: 1fr;
-    }
-    /* Reset tutte le eccezioni precedenti */
-    .service-item:nth-child(4n),
-    .service-item:nth-child(2n) {
-      border-right: 1px solid rgba(155,123,82,0.15);
-    }
-    .service-item:nth-child(n+5),
-    .service-item:nth-last-child(-n+2) {
-      border-bottom: 1px solid rgba(155,123,82,0.15);
-    }
-    /* 1-col: nessun bordo destro su nessun item */
-    .service-item:nth-child(n) {
-      border-right: none;
-    }
-    .service-item:last-child {
-      border-bottom: none;
-    }
     .service-item {
-      padding: 3.2rem 1.5rem 2.8rem;
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(155,123,82,0.15);
+      border-bottom: 1px solid rgba(155,123,82,0.15);
+      transition: background var(--transition);
     }
+
+    .service-item:hover {
+      background: rgba(247,242,234,0.7);
+    }
+
+    .service-item:nth-child(4n) {
+      border-right: none;
+    }
+
+    .service-item:nth-child(n+5) {
+      border-bottom: none;
+    }
+
+    .service-item__icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 2.2rem;
+      color: var(--antracite);
+      display: block;
+      transition: color var(--transition), transform var(--transition);
+      flex-shrink: 0;
+    }
+
+    .service-item:hover .service-item__icon {
+      color: var(--warm-brown);
+      transform: translateY(-4px);
+    }
+
+    .service-item__title {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--antracite);
+      margin-bottom: 1.1rem;
+      line-height: 1.65;
+    }
+
     .service-item__desc {
-      max-width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.82;
+      font-weight: 300;
+      max-width: 230px;
+      margin: 0 auto;
     }
-  }
+
+    @media (max-width: 900px) {
+      .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .service-item:nth-child(4n) {
+        border-right: 1px solid rgba(155,123,82,0.15);
+      }
+      .service-item:nth-child(n+5) {
+        border-bottom: 1px solid rgba(155,123,82,0.15);
+      }
+      .service-item:nth-child(2n) {
+        border-right: none;
+      }
+      .service-item:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services {
+        padding: 6rem 0 5rem;
+      }
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+      .service-item:nth-child(4n),
+      .service-item:nth-child(2n) {
+        border-right: 1px solid rgba(155,123,82,0.15);
+      }
+      .service-item:nth-child(n+5),
+      .service-item:nth-last-child(-n+2) {
+        border-bottom: 1px solid rgba(155,123,82,0.15);
+      }
+      .service-item:nth-child(n) {
+        border-right: none;
+      }
+      .service-item:last-child {
+        border-bottom: none;
+      }
+      .service-item {
+        padding: 3.2rem 1.5rem 2.8rem;
+      }
+      .service-item__desc {
+        max-width: 100%;
+      }
+    }
 
     /* =============================================
-       GALLERIA
+       SU MISURA — sezione a due colonne riusabile
+       (Abiti su misura / Camicie su misura)
+    ============================================= */
+    .split {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+
+    .split--alt { background: var(--beige-light); }
+
+    .split__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .split--reverse .split__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .split--reverse .split__media { order: 2; }
+    .split--reverse .split__text  { order: 1; }
+
+    .split__text p {
+      color: var(--text-mid);
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 1.3rem;
+    }
+
+    .split__media { display: flex; flex-direction: column; gap: 1rem; }
+
+    .split__media-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .split__video-frame { position: relative; }
+
+    .split__video {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+      background: var(--beige-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .split__video-caption {
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* Griglia 2x2 immagini camicie */
+    .split__img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .split__img-grid img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition);
+    }
+
+    .split__img-grid a:hover img { transform: scale(1.03); }
+
+    @media (max-width: 900px) {
+      .split { padding: 5.5rem 0; }
+      .split__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .split--reverse .split__media,
+      .split--reverse .split__text { order: initial; }
+      .split__media-row { max-width: 480px; margin: 0 auto; }
+      .split__img-grid { max-width: 480px; margin: 0 auto; }
+    }
+
+    @media (max-width: 560px) {
+      .split__media-row { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       DETTAGLI ARTIGIANALI
+    ============================================= */
+    .dettagli {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+
+    .dettagli__header { text-align: center; margin-bottom: 3.5rem; }
+
+    .dettagli__intro {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-light);
+      font-size: 0.97rem;
+      font-weight: 300;
+      line-height: 1.85;
+      text-align: center;
+    }
+
+    .dettagli__feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      margin: 3.5rem 0 4.5rem;
+      padding-bottom: 4.5rem;
+      border-bottom: 1px solid rgba(155,123,82,0.16);
+    }
+
+    .dettagli__feature-text p {
+      color: var(--text-mid);
+      font-weight: 300;
+      font-size: 0.98rem;
+    }
+
+    .dettagli__feature-video {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+      background: var(--beige-light);
+      box-shadow: var(--shadow-sm);
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .dettagli__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+
+    .dettagli__grid figure {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 2px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dettagli__grid img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition);
+    }
+
+    .dettagli__grid figure:hover img { transform: scale(1.06); }
+
+    @media (max-width: 900px) {
+      .dettagli__feature { grid-template-columns: 1fr; gap: 2rem; }
+      .dettagli__feature-video { order: -1; }
+      .dettagli__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .dettagli { padding: 5.5rem 0; }
+      .dettagli__grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+    }
+
+    /* =============================================
+       IL RISULTATO FINALE (galleria fotografica)
     ============================================= */
     .gallery {
       padding: 7rem 0;
@@ -776,11 +914,21 @@
 
     .gallery__header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 1.5rem;
     }
 
     .gallery__header .section-title {
       color: var(--ivory);
+    }
+
+    .gallery__intro {
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+      color: rgba(247,242,234,0.55);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
     }
 
     .gallery__grid {
@@ -790,7 +938,6 @@
       gap: 1rem;
     }
 
-    /* Layout asimmetrico galleria */
     .gallery__item { position: relative; overflow: hidden; border-radius: 2px; }
     .gallery__item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
     .gallery__item:nth-child(2) { grid-column: span 4; }
@@ -799,44 +946,26 @@
     .gallery__item:nth-child(5) { grid-column: span 3; }
     .gallery__item:nth-child(6) { grid-column: span 4; }
 
-    .gallery__placeholder {
+    .gallery__img {
       width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px dashed rgba(196,164,86,0.25);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      color: rgba(247,242,234,0.3);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: background var(--transition), border-color var(--transition);
-      cursor: pointer;
-      padding: 2rem 1rem;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
     }
 
-    .gallery__item:nth-child(1) .gallery__placeholder { aspect-ratio: unset; min-height: 380px; height: 100%; }
-    .gallery__item:nth-child(2) .gallery__placeholder,
-    .gallery__item:nth-child(3) .gallery__placeholder,
-    .gallery__item:nth-child(4) .gallery__placeholder,
-    .gallery__item:nth-child(5) .gallery__placeholder,
-    .gallery__item:nth-child(6) .gallery__placeholder { aspect-ratio: 4/3; }
+    .gallery__item:hover .gallery__img { transform: scale(1.045); }
 
-    .gallery__item:hover .gallery__placeholder {
-      background: rgba(196,164,86,0.07);
-      border-color: rgba(196,164,86,0.5);
-    }
+    .gallery__item:nth-child(1) .gallery__img { min-height: 380px; }
+    .gallery__item:nth-child(2) .gallery__img,
+    .gallery__item:nth-child(3) .gallery__img,
+    .gallery__item:nth-child(4) .gallery__img,
+    .gallery__item:nth-child(5) .gallery__img,
+    .gallery__item:nth-child(6) .gallery__img { aspect-ratio: 4/3; }
 
-    .gallery__placeholder svg { opacity: 0.4; }
-
-    .gallery__note {
+    .gallery__cta {
       text-align: center;
-      margin-top: 2.5rem;
-      font-size: 0.78rem;
-      color: rgba(247,242,234,0.3);
-      letter-spacing: 0.05em;
+      margin-top: 3rem;
     }
 
     /* =============================================
@@ -871,10 +1000,6 @@
       gap: 1.5rem;
     }
 
-    /* ---- PILLOLA CARD ----
-         Ogni pillola è ancora in lavorazione.
-         Modifica titolo, testo e icona di ciascuna card nel relativo commento HTML.
-    ---- */
     .pillola-card {
       background: var(--ivory);
       border: 1px solid rgba(155,123,82,0.14);
@@ -965,11 +1090,6 @@
       gap: 2rem;
     }
 
-    /* ---- EVENTO CARD ----
-         Per ogni evento:
-         - Sostituisci il placeholder con un tag <img> reale
-         - Aggiorna titolo, testo e data nel relativo commento HTML
-    ---- */
     .evento-card {
       background: var(--white);
       border-radius: 2px;
@@ -990,7 +1110,6 @@
       display: block;
     }
 
-    /* Placeholder immagine evento – visibile finché non si inserisce l'img reale */
     .evento-card__image-placeholder {
       width: 100%;
       aspect-ratio: 16/9;
@@ -1008,6 +1127,38 @@
 
     .evento-card__image-placeholder svg {
       opacity: 0.3;
+    }
+
+    .evento-card__gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3px;
+    }
+
+    .evento-card__gallery img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition);
+    }
+
+    .evento-card__gallery img:hover {
+      transform: scale(1.06);
+    }
+
+    @media (max-width: 420px) {
+      .evento-card__gallery {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .evento-card__gallery--sposi {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .evento-card__gallery--sposi img {
+      aspect-ratio: 4/3;
     }
 
     .evento-card__body {
@@ -1129,7 +1280,7 @@
     }
 
     /* =============================================
-       CONTATTI – aggiornati con due sedi
+       CONTATTI
     ============================================= */
     .contact {
       padding: 7rem 0;
@@ -1207,7 +1358,6 @@
       margin-top: 0.5rem;
     }
 
-    /* Mappa placeholder */
     .contact__map {
       width: 100%;
       aspect-ratio: 4/3;
@@ -1226,7 +1376,6 @@
       padding: 2rem;
     }
 
-    /* Per mappa reale: sostituisci il div.contact__map con un <iframe> Google Maps */
     .contact__map iframe {
       width: 100%;
       height: 100%;
@@ -1234,7 +1383,6 @@
       border-radius: 2px;
     }
 
-    /* Social icons */
     .contact__social {
       display: flex;
       gap: 1rem;
@@ -1371,7 +1519,6 @@
       50%       { opacity: 0.9; }
     }
 
-    /* Reveal on scroll (classe aggiunta via JS) */
     .reveal {
       opacity: 0;
       transform: translateY(25px);
@@ -1408,7 +1555,7 @@
         grid-template-columns: 1fr 1fr;
       }
       .gallery__item { grid-column: span 1 !important; grid-row: span 1 !important; }
-      .gallery__item .gallery__placeholder { aspect-ratio: 4/3 !important; height: auto !important; min-height: unset !important; }
+      .gallery__item .gallery__img { aspect-ratio: 4/3 !important; height: auto !important; min-height: unset !important; }
 
       .nav__links  { display: none; }
       .nav__toggle { display: flex; }
@@ -1433,18 +1580,19 @@
 
   <!-- =============================================
        NAVIGAZIONE FISSA
-       Ordine: Home · La nostra storia · Servizi · Galleria · Pillole · Eventi · Orari · Contatti
   ============================================= -->
   <nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
     <div class="container nav__inner">
-    <a href="#home" class="nav__logo" aria-label="Sartoria Semolini – torna alla home">
-      <img src="images/logo-semolini-trasparente.png?v=2" alt="Sartoria Semolini Logo" class="nav__logo-img">
-    </a>
+      <a href="#home" class="nav__logo" aria-label="Sartoria Semolini – torna alla home">
+        <img src="images/logo-semolini-trasparente.png" alt="Sartoria Semolini Logo" class="nav__logo-img">
+      </a>
       <!-- Link desktop -->
       <ul class="nav__links" role="list">
-        <li><a href="#storia">La nostra storia</a></li>
+        <li><a href="#storia">Storia</a></li>
         <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#galleria">Galleria</a></li>
+        <li><a href="#sumisura">Su misura</a></li>
+        <li><a href="#dettagli">Dettagli</a></li>
+        <li><a href="#risultato">Risultato</a></li>
         <li><a href="#pillole">Pillole</a></li>
         <li><a href="#eventi">Eventi</a></li>
         <li><a href="#orari">Orari</a></li>
@@ -1466,7 +1614,9 @@
     <a href="#home"     class="nav-mobile-link">Home</a>
     <a href="#storia"   class="nav-mobile-link">La nostra storia</a>
     <a href="#servizi"  class="nav-mobile-link">Servizi</a>
-    <a href="#galleria" class="nav-mobile-link">Galleria</a>
+    <a href="#sumisura" class="nav-mobile-link">Su misura</a>
+    <a href="#dettagli" class="nav-mobile-link">Dettagli</a>
+    <a href="#risultato" class="nav-mobile-link">Risultato finale</a>
     <a href="#pillole"  class="nav-mobile-link">Pillole</a>
     <a href="#eventi"   class="nav-mobile-link">Eventi</a>
     <a href="#orari"    class="nav-mobile-link">Orari</a>
@@ -1476,6 +1626,8 @@
 
   <!-- =============================================
        1. HOME / HERO
+       Sfondo: foto indossato/collezione cerimonia/DAMASCATO BLU.jpg
+       (versione ottimizzata in images/hero-damascato-blu.jpg)
   ============================================= -->
   <section class="hero" id="home" aria-label="Benvenuto in Sartoria Semolini">
     <div class="hero__thread" aria-hidden="true"></div>
@@ -1484,20 +1636,17 @@
       <div class="hero__content">
         <p class="hero__eyebrow">Sartoria uomo · Made in Italy</p>
 
-        <h1 class="hero__title-image">
-          <img src="images/logo-semolini-trasparente.png?v=2"
-              alt="Sartoria Semolini"
-              class="hero__logo">
-        </h1>
+        <div class="hero__title-image">
+          <img src="images/logo-semolini-trasparente.png" alt="Sartoria Semolini" class="hero__logo">
+        </div>
 
-        <!-- MODIFICA 1: frase hero aggiornata -->
         <p class="hero__subtitle">
           L'arte del vestire su misura
         </p>
 
         <div class="hero__buttons">
           <a href="#contatti" class="btn btn--primary">Contattaci</a>
-          <a href="#galleria" class="btn btn--outline">Guarda i nostri lavori</a>
+          <a href="#risultato" class="btn btn--outline">Guarda i nostri lavori</a>
         </div>
       </div>
     </div>
@@ -1511,35 +1660,27 @@
 
   <!-- =============================================
        2. LA NOSTRA STORIA
-       Testo aggiornato — video sostituisce l'immagine
+       Video: videos/storia-sartoria-semolini.mp4
   ============================================= -->
   <section class="story" id="storia" aria-label="La nostra storia">
     <div class="container">
       <div class="story__grid">
 
-        <!-- VIDEO STORIA
-             Percorso file: videos/storia-sartoria-semolini.mp4
-             - Sostituisci il video con il file reale caricato nella cartella videos/
-             - Aggiorna l'attributo poster con un fotogramma di copertina (facoltativo)
-               es: poster="images/storia-poster.jpg"
-             - Non modificare gli altri attributi (controls, muted, playsinline, preload)
-        -->
         <div class="story__image-wrap reveal">
           <video
             class="story__video"
             controls
             muted
             playsinline
-            preload="metadata"
+            preload="none"
             poster="images/storia-poster.png"
-            aria-label="Video di presentazione della storia di Sartoria Semolini"
+            aria-label="Video: la storia di Sartoria Semolini"
           >
-          <source src="videos/storia-sartoria-semolini.mp4" type="video/mp4" />
-        </video>
+            <source src="videos/storia-sartoria-semolini.mp4" type="video/mp4" />
+          </video>
           <div class="story__image-frame" aria-hidden="true"></div>
         </div>
 
-        <!-- TESTO STORIA – aggiornato -->
         <div class="story__text reveal reveal-delay-2">
           <span class="section-label">La nostra storia</span>
           <h2 class="section-title">Una passione<br><em>nata per durare</em></h2>
@@ -1572,19 +1713,17 @@
 
 
   <!-- =============================================
-       3. SERVIZI – 8 card aggiornate
+       3. SERVIZI – 8 card (invariate)
   ============================================= -->
   <section class="services" id="servizi" aria-label="I nostri servizi">
   <div class="container">
 
-    <!-- Intestazione sezione -->
     <div class="services__header reveal">
       <span class="section-label">Cosa facciamo</span>
       <h2 class="section-title">I nostri <em>servizi</em></h2>
       <div class="divider divider--center"></div>
     </div>
 
-    <!-- Testo introduttivo -->
     <p class="services__intro reveal">
       In Sartoria Semolini mettiamo a disposizione esperienza manifatturiera,
       consulenza sartoriale e soluzioni personalizzate per privati e aziende.
@@ -1592,37 +1731,23 @@
       e stile autenticamente Made in Italy.
     </p>
 
-    <!-- Linea separatrice editoriale -->
     <hr class="services__rule" aria-hidden="true" />
 
-    <!-- Griglia 8 servizi -->
     <div class="services__grid">
 
-
-      <!-- ─── 1. VENDITA AL DETTAGLIO UOMO ───────────────────
-           Icona: giacca uomo – silhouette frontale con bavero,
-           bottoni e taschini.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-1">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- corpo giacca -->
           <path d="M6 40 L6 15 L13 5 Q22 12 31 5 L38 15 L38 40 Z"/>
-          <!-- piega bavero sinistro -->
           <line x1="13" y1="5" x2="19.5" y2="19"/>
-          <!-- piega bavero destro -->
           <line x1="31" y1="5" x2="24.5" y2="19"/>
-          <!-- linea centrale (abbottonatura) -->
           <line x1="22" y1="19" x2="22" y2="39"/>
-          <!-- bottoni -->
           <circle cx="22" cy="25" r="1"   fill="currentColor" stroke="none"/>
           <circle cx="22" cy="31" r="1"   fill="currentColor" stroke="none"/>
           <circle cx="22" cy="37" r="0.8" fill="currentColor" stroke="none"/>
-          <!-- taschino sinistro -->
           <path d="M9 30 L16 30 L16 34 L9 34"/>
-          <!-- taschino destro -->
           <path d="M28 30 L35 30 L35 34 L28 34"/>
         </svg>
         <h3 class="service-item__title">Vendita al dettaglio uomo</h3>
@@ -1633,24 +1758,15 @@
         </p>
       </article>
 
-
-      <!-- ─── 2. SERVIZIO SU MISURA E CERIMONIA ──────────────
-           Icona: metro da sarta – custodia con nastro esteso
-           e segni di misurazione.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-2">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- custodia metro (rettangolo arrotondato) -->
           <rect x="4" y="15" width="22" height="14" rx="3"/>
-          <!-- ghiera interna -->
           <circle cx="15" cy="22" r="5"/>
           <circle cx="15" cy="22" r="1.5" fill="currentColor" stroke="none"/>
-          <!-- nastro che fuoriesce a destra -->
           <path d="M26 19 L40 19 L40 25 L26 25"/>
-          <!-- segni di misura sul nastro -->
           <line x1="29"   y1="19" x2="29"   y2="21.5"/>
           <line x1="32"   y1="19" x2="32"   y2="21.5"/>
           <line x1="35"   y1="19" x2="35"   y2="21.5"/>
@@ -1667,23 +1783,14 @@
         </p>
       </article>
 
-
-      <!-- ─── 3. DIVISE AZIENDALI SARTORIALI ─────────────────
-           Icona: etichetta abbigliamento – cartellino a punta
-           con foro, corda e righe di testo stilizzate.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-3">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- cartellino: rettangolo con punta in basso -->
           <path d="M12 5 L32 5 L32 30 L22 39 L12 30 Z"/>
-          <!-- foro in alto -->
           <circle cx="22" cy="11" r="2.5"/>
-          <!-- corda dal foro verso l'alto -->
           <path d="M22 8.5 Q20 4 16 3"/>
-          <!-- linee testo stilizzate -->
           <line x1="16" y1="19" x2="28" y2="19"/>
           <line x1="16" y1="24" x2="28" y2="24"/>
           <line x1="18" y1="29" x2="26" y2="29"/>
@@ -1696,23 +1803,14 @@
         </p>
       </article>
 
-
-      <!-- ─── 4. SU MISURA A DOMICILIO ───────────────────────
-           Icona: ago con filo – ago diagonale con occhiello
-           e curva di filo che scende elegante.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-4">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- corpo dell'ago (diagonale) -->
           <path d="M11 37 L33 9"/>
-          <!-- occhiello dell'ago (ellisse ruotata) -->
           <ellipse cx="31.5" cy="10.5" rx="3" ry="1.5"
                    transform="rotate(-52 31.5 10.5)"/>
-          <!-- punta acuminata (già inclusa nel path) -->
-          <!-- filo: parte dall'occhiello, curva elegante verso il basso -->
           <path d="M35 8 Q41 6 39 18 Q37 30 27 37 Q19 43 8 39"/>
         </svg>
         <h3 class="service-item__title">Su misura a domicilio</h3>
@@ -1723,24 +1821,15 @@
         </p>
       </article>
 
-
-      <!-- ─── 5. DIVISE PER HOTEL E HOSPITALITY ──────────────
-           Icona: rocchetto di filo – forma a clessidra vista
-           di tre quarti con avvolgimenti di filo.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-5">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- flangia superiore -->
           <ellipse cx="22" cy="10" rx="14" ry="4.5"/>
-          <!-- flangia inferiore -->
           <ellipse cx="22" cy="34" rx="14" ry="4.5"/>
-          <!-- lati a clessidra (restringimento centrale) -->
           <path d="M8  10 Q11.5 22 8  34"/>
           <path d="M36 10 Q32.5 22 36 34"/>
-          <!-- avvolgimenti di filo (ellissi intermedie) -->
           <ellipse cx="22" cy="18" rx="9.5" ry="2.8"/>
           <ellipse cx="22" cy="26" rx="9.5" ry="2.8"/>
         </svg>
@@ -1752,25 +1841,15 @@
         </p>
       </article>
 
-
-      <!-- ─── 6. SUPPORTO PER SARTORIE ESTERNE ───────────────
-           Icona: forbici da sarto – due anelli e lame
-           che si incrociano al perno.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-6">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- anello manico superiore -->
           <circle cx="12" cy="12" r="6"/>
-          <!-- anello manico inferiore -->
           <circle cx="22" cy="12" r="6"/>
-          <!-- lama superiore dall'anello alla punta -->
           <path d="M16 16.5 L39 33"/>
-          <!-- lama inferiore dall'anello alla punta -->
           <path d="M19 16.5 L39 26"/>
-          <!-- perno di rotazione -->
           <circle cx="30" cy="23.5" r="2"
                   fill="currentColor" stroke="none"/>
         </svg>
@@ -1782,30 +1861,18 @@
         </p>
       </article>
 
-
-      <!-- ─── 7. PRODUZIONE CONTO TERZI MADE IN ITALY ─────────
-           Icona: macchina da cucire – braccio, corpo, volano
-           e navetta stilizzati.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-7">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- piano/base -->
           <line x1="3" y1="38" x2="41" y2="38"/>
-          <!-- corpo macchina -->
           <rect x="8" y="25" width="24" height="13" rx="1.5"/>
-          <!-- braccio/testa (parte superiore aggettante) -->
           <path d="M8 25 L8 15 Q8 9 15 9 L30 9 Q38 9 38 16 L38 25"/>
-          <!-- barra ago (verticale, sotto la testa) -->
           <line x1="14" y1="25" x2="14" y2="40"/>
-          <!-- volano (destra) -->
           <circle cx="33" cy="29" r="5"/>
           <circle cx="33" cy="29" r="1.8" fill="currentColor" stroke="none"/>
-          <!-- portarocchetto (sommità) -->
           <circle cx="22" cy="9" r="3"/>
-          <!-- filo dal rocchetto all'ago -->
           <path d="M22 12 Q18 18 14 22"/>
         </svg>
         <h3 class="service-item__title">Produzione conto terzi Made in Italy</h3>
@@ -1816,29 +1883,18 @@
         </p>
       </article>
 
-
-      <!-- ─── 8. DISTRIBUZIONE E PRIVATE LABEL ───────────────
-           Icona: rotolo di tessuto – cilindro orizzontale
-           visto di tre quarti con strati di tessuto.
-      ─────────────────────────────────────────────────────── -->
       <article class="service-item reveal reveal-delay-8">
         <svg class="service-item__icon" viewBox="0 0 44 44" fill="none"
              stroke="currentColor" stroke-width="1.1"
              stroke-linecap="round" stroke-linejoin="round"
              aria-hidden="true">
-          <!-- testa destra del cilindro (ellisse frontale) -->
           <ellipse cx="34" cy="22" rx="4" ry="13"/>
-          <!-- testa sinistra (ellisse posteriore) -->
           <ellipse cx="10" cy="22" rx="4" ry="13"/>
-          <!-- bordo superiore del cilindro -->
           <line x1="10" y1="9"  x2="34" y2="9"/>
-          <!-- bordo inferiore del cilindro -->
           <line x1="10" y1="35" x2="34" y2="35"/>
-          <!-- strati di tessuto interni (righe orizzontali) -->
           <line x1="10" y1="15" x2="34" y2="15"/>
           <line x1="10" y1="22" x2="34" y2="22"/>
           <line x1="10" y1="29" x2="34" y2="29"/>
-          <!-- anima centrale (perno passante) -->
           <line x1="6" y1="22" x2="38" y2="22"
                 stroke-width="0.7" stroke-dasharray="2 2"/>
         </svg>
@@ -1850,103 +1906,244 @@
         </p>
       </article>
 
-
     </div><!-- /services__grid -->
   </div><!-- /container -->
-</section>
+  </section>
+
+
   <!-- =============================================
-       4. GALLERIA
-       Invariata — i placeholder vengono sostituiti con img reali.
-       Per ogni item rimuovi il div.gallery__placeholder e inserisci:
-       <img src="images/foto-X.jpg" alt="Descrizione" style="width:100%;height:100%;object-fit:cover;">
+       4. SU MISURA — ABITI
+       Video: video vari/REEL 1 TAGLIO.MP4
+              servizio su misura abiti/REEL 2 LAVORAZIONE.MP4
+              servizio su misura abiti/Copia di REEL 5.MP4
   ============================================= -->
-  <section class="gallery" id="galleria" aria-label="Galleria dei lavori">
+  <section class="split" id="sumisura" aria-label="Servizio su misura: abiti">
+    <div class="container">
+      <div class="split__grid">
+
+        <div class="split__text reveal">
+          <span class="section-label">Su misura</span>
+          <h2 class="section-title">Abiti <em>su misura</em></h2>
+          <div class="divider"></div>
+          <p>
+            Dalla scelta del tessuto al taglio del cartamodello, ogni abito nasce da un
+            percorso fatto di misure prese a mano, prove e piccoli aggiustamenti che
+            restituiscono una vestibilità impossibile da trovare nel pronto moda.
+          </p>
+          <p>
+            Nel nostro laboratorio ogni fase della lavorazione — dal taglio del tessuto alla
+            cucitura finale — è seguita da mani esperte, per un capo che porta davvero la
+            propria firma.
+          </p>
+          <a href="#contatti" class="btn btn--primary" style="margin-top:0.5rem;">Richiedi un appuntamento</a>
+        </div>
+
+        <div class="split__media reveal reveal-delay-2">
+          <div class="split__media-row">
+            <div>
+              <video class="split__video" autoplay muted loop playsinline preload="none"
+                     poster="images/lavorazione-poster.jpg"
+                     aria-label="Video decorativo: lavorazione a mano di un capo sartoriale">
+                <source src="videos/lavorazione.mp4" type="video/mp4" />
+              </video>
+              <p class="split__video-caption">La lavorazione</p>
+            </div>
+            <div>
+              <video class="split__video" controls muted playsinline preload="none"
+                     poster="images/taglio-poster.jpg"
+                     aria-label="Video: il taglio del tessuto in sartoria">
+                <source src="videos/taglio.mp4" type="video/mp4" />
+              </video>
+              <p class="split__video-caption">Il taglio</p>
+            </div>
+            <div>
+              <video class="split__video" controls muted playsinline preload="none"
+                     poster="images/storia-poster.jpg"
+                     aria-label="Video: un capo su misura raccontato passo dopo passo">
+                <source src="videos/capo-su-misura.mp4" type="video/mp4" />
+              </video>
+              <p class="split__video-caption">Il capo su misura</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       5. SU MISURA — CAMICIE
+       Immagini: servizio su misura camicie/*.jpg
+  ============================================= -->
+  <section class="split split--alt split--reverse" id="camicie" aria-label="Servizio su misura: camicie">
+    <div class="container">
+      <div class="split__grid">
+
+        <div class="split__media reveal">
+          <div class="split__img-grid">
+            <a href="images/camicia-1.jpg" aria-label="Apri immagine: tessuti e cartella colori per camicie su misura">
+              <img src="images/camicia-1.jpg" alt="Cartella tessuti a righe, metro da sarta e colletto campione per camicie su misura Sartoria Semolini" loading="lazy">
+            </a>
+            <a href="images/camicia-4.jpg" aria-label="Apri immagine: camicie su misura piegate, dettaglio polsini">
+              <img src="images/camicia-4.jpg" alt="Polsini di camicie su misura piegate, in cotone bianco e righe rosa" loading="lazy">
+            </a>
+            <a href="images/camicia-3.jpg" aria-label="Apri immagine: camicia a quadri con cravatta e pochette">
+              <img src="images/camicia-3.jpg" alt="Camicia a quadri su misura abbinata a cravatta e pochette di sartoria" loading="lazy">
+            </a>
+            <a href="images/camicia-2.jpg" aria-label="Apri immagine: dettaglio cravatta e colletto camicia">
+              <img src="images/camicia-2.jpg" alt="Dettaglio di cravatta a motivi geometrici su colletto di camicia su misura" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="split__text reveal reveal-delay-2">
+          <span class="section-label">Su misura</span>
+          <h2 class="section-title">Camicie <em>su misura</em></h2>
+          <div class="divider"></div>
+          <p>
+            Colletto, polso e tessuto: la camicia su misura si costruisce interamente
+            intorno a chi la indossa. Un servizio pensato per chi cerca precisione nella
+            vestibilità e attenzione ai dettagli, dalla scelta del cotone alla prova finale
+            in sartoria.
+          </p>
+          <p>
+            Un'ampia cartella di tessuti e rifiniture accompagna il cliente nella scelta,
+            capo dopo capo, verso una camicia pensata esclusivamente su misura.
+          </p>
+          <a href="#contatti" class="btn btn--primary" style="margin-top:0.5rem;">Prenota una consulenza</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       6. DETTAGLI ARTIGIANALI
+       Immagini: DETTAGLI/*.jpg
+       Video: servizio su misura abiti/REEL 3 ETICHETTA SEMOLINI.MP4
+  ============================================= -->
+  <section class="dettagli" id="dettagli" aria-label="Dettagli artigianali">
+    <div class="container">
+
+      <div class="dettagli__header reveal">
+        <span class="section-label">Fatto a mano</span>
+        <h2 class="section-title">Dettagli <em>artigianali</em></h2>
+        <div class="divider divider--center"></div>
+      </div>
+
+      <p class="dettagli__intro reveal">
+        Bottoni, asole rifinite a mano, cuciture precise e tessuti scelti uno a uno:
+        sono i dettagli, spesso invisibili a un primo sguardo, a fare la differenza
+        tra un capo qualsiasi e un capo sartoriale.
+      </p>
+
+      <div class="dettagli__feature reveal">
+        <div class="dettagli__feature-text">
+          <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:400; color:var(--antracite); margin-bottom:0.9rem;">
+            Una firma cucita a mano
+          </h3>
+          <p>
+            Ogni capo realizzato nel nostro laboratorio porta l'etichetta Sartoria
+            Semolini, applicata a mano al termine della lavorazione: un piccolo gesto
+            che racchiude l'identità e la cura di ogni fase del processo sartoriale.
+          </p>
+        </div>
+        <video class="dettagli__feature-video" controls muted playsinline preload="none"
+               poster="images/etichetta-poster.jpg"
+               aria-label="Video: applicazione a mano dell'etichetta Sartoria Semolini su un capo">
+          <source src="videos/etichetta-semolini.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="dettagli__grid reveal">
+        <figure>
+          <img src="images/dettaglio-1.jpg" loading="lazy" alt="Macro di bavero e asola cucita a mano su giacca blu">
+        </figure>
+        <figure>
+          <img src="images/dettaglio-2.jpg" loading="lazy" alt="Papillon verde scuro annodato su camicia bianca, dettaglio collo">
+        </figure>
+        <figure>
+          <img src="images/dettaglio-3.jpg" loading="lazy" alt="Cravatta a maglia blu e gialla su camicia azzurra, dettaglio polso">
+        </figure>
+        <figure>
+          <img src="images/dettaglio-4.jpg" loading="lazy" alt="Taschino con pochette a motivi paisley su giacca beige">
+        </figure>
+        <figure>
+          <img src="images/dettaglio-5.jpg" loading="lazy" alt="Taschino con pochette a righe e quadri su giacca principe di Galles">
+        </figure>
+        <figure>
+          <img src="images/dettaglio-6.jpg" loading="lazy" alt="Cravatta bordeaux a pois su giacca viola, dettaglio nodo">
+        </figure>
+        <figure>
+          <img src="images/dettaglio-7.jpg" loading="lazy" alt="Camicia bianca, cravatta bordeaux a pois e gemelli in scatola">
+        </figure>
+        <figure>
+          <img src="images/dettaglio-8.jpg" loading="lazy" alt="Bottoni e taschino di giacca principe di Galles con cravatta a pois">
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       7. IL RISULTATO FINALE
+       Immagini: foto indossato/collezione cerimonia/*.jpg
+  ============================================= -->
+  <section class="gallery" id="risultato" aria-label="Il risultato finale: fotografie dei capi indossati">
     <div class="container">
 
       <div class="gallery__header reveal">
         <span class="section-label">I nostri lavori</span>
-        <h2 class="section-title" style="color:var(--ivory);">Ogni capo, <em style="color:var(--gold-light);">una cura</em></h2>
+        <h2 class="section-title" style="color:var(--ivory);">Il risultato <em style="color:var(--gold-light);">finale</em></h2>
         <div class="divider divider--center" style="background:var(--gold);"></div>
       </div>
 
+      <p class="gallery__intro reveal">
+        Abiti da cerimonia, smoking e mezzi tight realizzati su misura: la sartoria
+        si riconosce nel modo in cui un capo cade addosso.
+      </p>
+
       <div class="gallery__grid reveal">
 
-        <!-- FOTO 1 (grande, verticale) – percorso: images/gallery-1.jpg -->
         <div class="gallery__item">
-          <div class="gallery__placeholder" role="img" aria-label="Foto lavoro 1 – da aggiungere">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>Foto 1</span>
-          </div>
+          <img class="gallery__img" src="images/gallery-smoking-verde.jpg" loading="lazy"
+               alt="Uomo con smoking verde bottiglia su misura, revers in raso nero, cerimonia">
         </div>
 
-        <!-- FOTO 2 – percorso: images/gallery-2.jpg -->
         <div class="gallery__item">
-          <div class="gallery__placeholder" role="img" aria-label="Foto lavoro 2 – da aggiungere">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>Foto 2</span>
-          </div>
+          <img class="gallery__img" src="images/gallery-coreano.jpg" loading="lazy"
+               alt="Uomo con abito su misura blu jacquard a motivi paisley, cravatta coordinata">
         </div>
 
-        <!-- FOTO 3 – percorso: images/gallery-3.jpg -->
         <div class="gallery__item">
-          <div class="gallery__placeholder" role="img" aria-label="Foto lavoro 3 – da aggiungere">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>Foto 3</span>
-          </div>
+          <img class="gallery__img" src="images/gallery-smoking-dpetto.jpg" loading="lazy"
+               alt="Dettaglio giacca doppiopetto blu notte con papillon, smoking da cerimonia">
         </div>
 
-        <!-- FOTO 4 – percorso: images/gallery-4.jpg -->
         <div class="gallery__item">
-          <div class="gallery__placeholder" role="img" aria-label="Foto lavoro 4 – da aggiungere">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>Foto 4</span>
-          </div>
+          <img class="gallery__img" src="images/gallery-tight-lungo.jpg" loading="lazy"
+               alt="Uomo con tight lungo blu, gilet a righe, cilindro e bastone da passeggio">
         </div>
 
-        <!-- FOTO 5 – percorso: images/gallery-5.jpg -->
         <div class="gallery__item">
-          <div class="gallery__placeholder" role="img" aria-label="Foto lavoro 5 – da aggiungere">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>Foto 5</span>
-          </div>
+          <img class="gallery__img" src="images/gallery-mezzo-tight-blu.jpg" loading="lazy"
+               alt="Uomo con mezzo tight blu notte e gilet grigio, ambiente interno">
         </div>
 
-        <!-- FOTO 6 – percorso: images/gallery-6.jpg -->
         <div class="gallery__item">
-          <div class="gallery__placeholder" role="img" aria-label="Foto lavoro 6 – da aggiungere">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>Foto 6</span>
-          </div>
+          <img class="gallery__img" src="images/gallery-smoking-panna.jpg" loading="lazy"
+               alt="Uomo con smoking color panna e gilet broccato, cerimonia elegante">
         </div>
 
       </div>
 
-      <p class="gallery__note">
-        📸 Le foto dei lavori verranno inserite a breve — torna a trovarci.
+      <p class="gallery__cta reveal">
+        <a href="https://www.instagram.com/sartoriasemolini/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+          Seguici su Instagram per altri scatti
+        </a>
       </p>
 
     </div>
@@ -1954,13 +2151,7 @@
 
 
   <!-- =============================================
-       5. PILLOLE DI SARTORIA
-       Sezione nuova – aggiunta dopo la galleria.
-
-       Per aggiornare ogni pillola:
-       - Modifica il testo dentro .pillola-card__title
-       - Modifica il testo dentro .pillola-card__desc
-       - Il badge "In arrivo" si rimuove quando il contenuto è definitivo
+       8. PILLOLE DI SARTORIA (invariata)
   ============================================= -->
   <section class="pillole" id="pillole" aria-label="Pillole di sartoria">
     <div class="container">
@@ -1976,46 +2167,28 @@
 
       <div class="pillole__grid">
 
-        <!-- PILLOLA 1
-             Titolo da definire: "Come scegliere il tessuto giusto"
-             Aggiorna il testo .pillola-card__desc con il contenuto definitivo.
-             Rimuovi il badge "In arrivo" quando il contenuto è pronto.
-        -->
         <article class="pillola-card reveal reveal-delay-1">
           <div class="pillola-card__number" aria-hidden="true">01</div>
           <h3 class="pillola-card__title">Come scegliere il tessuto giusto</h3>
           <p class="pillola-card__desc">
-            <!-- PLACEHOLDER – inserire qui il testo definitivo della pillola -->
             Lana, flanella, tweed, lino: ogni tessuto ha una stagione, un carattere, un'occasione ideale. Scopri come orientarti nella scelta per un risultato impeccabile.
           </p>
           <span class="pillola-card__badge">In arrivo</span>
         </article>
 
-        <!-- PILLOLA 2
-             Titolo da definire: "La differenza tra abito pronto e abito su misura"
-             Aggiorna il testo .pillola-card__desc con il contenuto definitivo.
-             Rimuovi il badge "In arrivo" quando il contenuto è pronto.
-        -->
         <article class="pillola-card reveal reveal-delay-2">
           <div class="pillola-card__number" aria-hidden="true">02</div>
           <h3 class="pillola-card__title">Abito pronto vs abito su misura</h3>
           <p class="pillola-card__desc">
-            <!-- PLACEHOLDER – inserire qui il testo definitivo della pillola -->
             Non si tratta solo di misure: è una questione di silhouette, costruzione, materiali e attenzione al dettaglio. Tutto quello che devi sapere prima di scegliere.
           </p>
           <span class="pillola-card__badge">In arrivo</span>
         </article>
 
-        <!-- PILLOLA 3
-             Titolo da definire: "Come prendersi cura di un capo sartoriale"
-             Aggiorna il testo .pillola-card__desc con il contenuto definitivo.
-             Rimuovi il badge "In arrivo" quando il contenuto è pronto.
-        -->
         <article class="pillola-card reveal reveal-delay-3">
           <div class="pillola-card__number" aria-hidden="true">03</div>
           <h3 class="pillola-card__title">La cura di un capo sartoriale</h3>
           <p class="pillola-card__desc">
-            <!-- PLACEHOLDER – inserire qui il testo definitivo della pillola -->
             Un abito su misura è un investimento: lavaggio, stiratura, conservazione e piccole manutenzioni sono fondamentali per farlo durare nel tempo e mantenere la sua forma.
           </p>
           <span class="pillola-card__badge">In arrivo</span>
@@ -2027,16 +2200,7 @@
 
 
   <!-- =============================================
-       6. EVENTI
-       Sezione nuova.
-
-       Per aggiornare ogni evento:
-       1. Sostituisci il div.evento-card__image-placeholder con:
-          <img src="images/nome-foto.jpg" alt="Descrizione evento" class="evento-card__image">
-       2. Aggiorna titolo, data e descrizione nei rispettivi tag.
-       3. Il percorso immagini è:
-          images/evento-sartoria-au-parfum.jpg
-          images/evento-gala-sposi-2025.jpg
+       9. EVENTI (invariata)
   ============================================= -->
   <section class="eventi" id="eventi" aria-label="Eventi Sartoria Semolini">
     <div class="container">
@@ -2052,56 +2216,40 @@
 
       <div class="eventi__grid">
 
-        <!-- EVENTO 1 – Sartoria au parfum
-             Immagine: images/evento-sartoria-au-parfum.jpg
-             Sostituisci il placeholder con: <img src="images/evento-sartoria-au-parfum.jpg" alt="Sartoria au parfum" class="evento-card__image">
-             Aggiorna la descrizione definitiva nel tag .evento-card__desc
-        -->
         <article class="evento-card reveal reveal-delay-1">
-          <!-- PLACEHOLDER IMMAGINE EVENTO 1
-               Percorso definitivo: images/evento-sartoria-au-parfum.jpg
-          -->
-          <div class="evento-card__image-placeholder" role="img" aria-label="Immagine Sartoria au parfum – da aggiungere">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>images/evento-sartoria-au-parfum.jpg</span>
+          <div class="evento-card__gallery">
+            <img src="images/sartoria-au-parfum-1.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 1">
+            <img src="images/sartoria-au-parfum-2.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 2">
+            <img src="images/sartoria-au-parfum-3.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 3">
+            <img src="images/sartoria-au-parfum-4.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 4">
+            <img src="images/sartoria-au-parfum-5.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 5">
+            <img src="images/sartoria-au-parfum-6.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 6">
+            <img src="images/sartoria-au-parfum-7.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 7">
+            <img src="images/sartoria-au-parfum-8.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 8">
+            <img src="images/sartoria-au-parfum-9.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 9">
+            <img src="images/sartoria-au-parfum-10.jpg" loading="lazy" alt="Sartoria au parfum: abito da cerimonia e profumo, dettaglio evento 10">
           </div>
           <div class="evento-card__body">
             <span class="evento-card__label">Evento</span>
             <h3 class="evento-card__title">Sartoria au parfum</h3>
-            <!-- PLACEHOLDER TESTO – inserire descrizione definitiva e data -->
             <p class="evento-card__desc">
-              Un evento dedicato all'incontro tra eleganza sartoriale, stile personale e suggestioni olfattive. Inserire qui descrizione definitiva e foto.
+              Un pomeriggio in cui l'eleganza si è fatta anche olfatto: abiti da cerimonia cuciti su misura hanno incontrato una selezione di profumi ricercati, in un percorso sensoriale unico tra tessuti pregiati e note di profumeria d'autore. Ogni capo raccontato non solo dalla linea e dal tessuto, ma anche dalla fragranza scelta per accompagnarlo, in un dialogo raro tra sartoria e arte olfattiva.
             </p>
           </div>
         </article>
 
-        <!-- EVENTO 2 – Gala degli sposi 2025
-             Immagine: images/evento-gala-sposi-2025.jpg
-             Sostituisci il placeholder con: <img src="images/evento-gala-sposi-2025.jpg" alt="Gala degli sposi 2025" class="evento-card__image">
-             Aggiorna la descrizione definitiva nel tag .evento-card__desc
-        -->
         <article class="evento-card reveal reveal-delay-2">
-          <!-- PLACEHOLDER IMMAGINE EVENTO 2
-               Percorso definitivo: images/evento-gala-sposi-2025.jpg
-          -->
-          <div class="evento-card__image-placeholder" role="img" aria-label="Immagine Gala degli sposi 2025 – da aggiungere">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>images/evento-gala-sposi-2025.jpg</span>
+          <div class="evento-card__gallery evento-card__gallery--sposi">
+            <img src="images/gala-sposi-2025-1.jpg" loading="lazy" alt="Gala degli sposi 2025: sposo in sfilata con abito su misura, dettaglio evento 1">
+            <img src="images/gala-sposi-2025-2.jpg" loading="lazy" alt="Gala degli sposi 2025: sposo in sfilata con abito su misura, dettaglio evento 2">
+            <img src="images/gala-sposi-2025-3.jpg" loading="lazy" alt="Gala degli sposi 2025: sposo in sfilata con abito su misura, dettaglio evento 3">
+            <img src="images/gala-sposi-2025-4.jpg" loading="lazy" alt="Gala degli sposi 2025: sposo in sfilata con abito su misura, dettaglio evento 4">
           </div>
           <div class="evento-card__body">
             <span class="evento-card__label">Evento · 2025</span>
             <h3 class="evento-card__title">Gala degli sposi 2025</h3>
-            <!-- PLACEHOLDER TESTO – inserire descrizione definitiva e data -->
             <p class="evento-card__desc">
-              Una serata dedicata al mondo della cerimonia e dell'abito da sposo. Inserire qui descrizione definitiva e foto.
+              Una serata unica dedicata a tutti gli sposi dell'anno: un vero e proprio red carpet in cui ciascuno di loro ha sfilato indossando l'abito realizzato su misura per il proprio giorno più importante. Un racconto corale fatto di tagli impeccabili, tessuti scelti con cura e l'emozione di rivivere, insieme, il momento in cui ogni abito ha preso vita addosso a chi lo ha scelto.
             </p>
           </div>
         </article>
@@ -2112,15 +2260,13 @@
 
 
   <!-- =============================================
-       7. ORARI
-       Invariati — aggiorna i valori nella tabella se necessario.
+       10. ORARI (invariata)
   ============================================= -->
   <section class="hours" id="orari" aria-label="Orari di apertura">
     <div class="container">
 
       <div class="hours__grid">
 
-        <!-- Tabella orari -->
         <div class="reveal">
           <span class="section-label">Quando trovarci</span>
           <h2 class="section-title">Orari di <em>apertura</em></h2>
@@ -2128,7 +2274,6 @@
 
           <span class="hours__badge">✦ Aperto al pubblico</span>
 
-          <!-- Modifica gli orari nella tabella qui sotto -->
           <table class="hours__table" aria-label="Tabella orari di apertura">
             <tbody>
               <tr>
@@ -2163,7 +2308,6 @@
           </table>
         </div>
 
-        <!-- Info aggiuntive -->
         <div class="reveal reveal-delay-2">
           <div class="hours__info-box">
             <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--antracite);margin-bottom:1.4rem;">
@@ -2201,7 +2345,7 @@
 
 
   <!-- =============================================
-       8. CONTATTI – aggiornati con due sedi, numeri reali e social
+       11. CONTATTI (invariata)
   ============================================= -->
   <section class="contact" id="contatti" aria-label="Contatti e dove siamo">
     <div class="container">
@@ -2217,10 +2361,8 @@
 
       <div class="contact__grid">
 
-        <!-- Dati di contatto -->
         <div class="contact__info reveal">
 
-          <!-- INDIRIZZI -->
           <div class="contact__item">
             <div class="contact__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -2253,7 +2395,6 @@
             </div>
           </div>
 
-          <!-- TELEFONI -->
           <div class="contact__item">
             <div class="contact__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -2271,7 +2412,6 @@
             </div>
           </div>
 
-          <!-- WHATSAPP -->
           <div class="contact__item">
             <div class="contact__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -2282,13 +2422,11 @@
             <div>
               <div class="contact__item-label">WhatsApp</div>
               <div class="contact__item-value">
-                <!-- Numero internazionale: 393404805120 -->
                 <a href="https://wa.me/393404805120?text=Salve%2C%20vorrei%20informazioni%20su%20Sartoria%20Semolini.">340 4805120</a>
               </div>
             </div>
           </div>
 
-          <!-- EMAIL -->
           <div class="contact__item">
             <div class="contact__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -2309,7 +2447,6 @@
             </div>
           </div>
 
-          <!-- SOCIAL -->
           <div class="contact__item">
             <div class="contact__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -2320,7 +2457,6 @@
             </div>
             <div>
               <div class="contact__item-label">Seguici sui social</div>
-              <!-- Sostituisci gli href con i link reali alle pagine social -->
               <div class="contact__social">
                 <a href="https://www.instagram.com/sartoriasemolini/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Sartoria Semolini">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -2338,9 +2474,7 @@
             </div>
           </div>
 
-          <!-- PULSANTI CONTATTO -->
           <div class="contact__buttons">
-            <!-- WhatsApp – numero internazionale 393404805120 -->
             <a href="https://wa.me/393404805120?text=Salve%2C%20vorrei%20informazioni%20su%20Sartoria%20Semolini." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -2349,17 +2483,14 @@
               Scrivici su WhatsApp
             </a>
 
-            <!-- Telefono Foiano -->
             <a href="tel:+390575648813" class="btn btn--primary" aria-label="Chiama il negozio di Foiano della Chiana">
               Chiama Foiano
             </a>
 
-            <!-- Telefono Orvieto -->
             <a href="tel:+390763340816" class="btn btn--outline" style="color:var(--dark-brown); border-color:var(--dark-brown);" aria-label="Chiama il negozio di Orvieto">
               Chiama Orvieto
             </a>
 
-            <!-- Email negozio -->
             <a href="mailto:sartoriasemolini@gmail.com" class="btn btn--gold" aria-label="Inviaci un'email">
               Invia un'email
             </a>
@@ -2367,13 +2498,6 @@
 
         </div>
 
-        <!-- MAPPA
-             Per inserire Google Maps:
-             1. Vai su maps.google.com
-             2. Cerca l'indirizzo: Via I Maggio 6, Foiano della Chiana
-             3. Clicca "Condividi" > "Incorpora una mappa"
-             4. Sostituisci il div.contact__map con il codice <iframe> fornito da Google
-        -->
         <div class="reveal reveal-delay-2">
           <div class="contact__map">
             <iframe
@@ -2394,32 +2518,32 @@
 
 
   <!-- =============================================
-       FOOTER – aggiornato con link e contatti reali
+       FOOTER
   ============================================= -->
   <footer class="footer" role="contentinfo">
     <div class="container">
 
       <div class="footer__top">
 
-        <!-- Brand -->
         <div>
           <div class="footer__brand">Sartoria Semolini</div>
           <p class="footer__brand-desc">
-            Abiti uomo, servizio su misura, cerimonia,<br>
+            Abiti e camicie su misura, cerimonia,<br>
             divise aziendali sartoriali e produzione<br>
             conto terzi Made in Italy.<br>
             Foiano della Chiana · Orvieto
           </p>
         </div>
 
-        <!-- Navigazione rapida -->
         <div>
           <div class="footer__col-title">Navigazione</div>
           <ul class="footer__links" role="list">
             <li><a href="#home">Home</a></li>
             <li><a href="#storia">La nostra storia</a></li>
             <li><a href="#servizi">Servizi</a></li>
-            <li><a href="#galleria">Galleria</a></li>
+            <li><a href="#sumisura">Su misura</a></li>
+            <li><a href="#dettagli">Dettagli artigianali</a></li>
+            <li><a href="#risultato">Il risultato finale</a></li>
             <li><a href="#pillole">Pillole di sartoria</a></li>
             <li><a href="#eventi">Eventi</a></li>
             <li><a href="#orari">Orari</a></li>
@@ -2427,7 +2551,6 @@
           </ul>
         </div>
 
-        <!-- Contatti footer -->
         <div>
           <div class="footer__col-title">Contatti</div>
           <ul class="footer__contact-list" role="list">
@@ -2475,7 +2598,7 @@
 
 
   <!-- =============================================
-       JAVASCRIPT
+       JAVASCRIPT (invariato)
   ============================================= -->
   <script>
     // ----- Anno corrente nel footer -----
