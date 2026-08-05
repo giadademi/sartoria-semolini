@@ -968,6 +968,53 @@
       margin-top: 3rem;
     }
 
+    .gallery__subsection {
+      margin-top: 4.5rem;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(247,242,234,0.12);
+      text-align: center;
+    }
+
+    .gallery__subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+    }
+
+    .gallery__subtitle em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .gallery__estate-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .gallery__estate-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.6s ease;
+    }
+
+    .gallery__estate-grid img:hover { transform: scale(1.045); }
+
+    @media (max-width: 900px) {
+      .gallery__estate-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .gallery__estate-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+    }
+
     /* =============================================
        PILLOLE DI SARTORIA
     ============================================= */
@@ -2138,6 +2185,27 @@
                alt="Uomo con smoking color panna e gilet broccato, cerimonia elegante">
         </div>
 
+      </div>
+
+      <div class="gallery__subsection reveal">
+        <h3 class="gallery__subtitle">Collezione <em>Estate</em></h3>
+        <p class="gallery__intro" style="margin-bottom:0;">
+          Tessuti leggeri, linee destrutturate e la stessa cura sartoriale di sempre: la collezione estiva nasce per accompagnare cerimonie e occasioni speciali anche nelle giornate più calde, senza rinunciare a eleganza e vestibilità impeccabile.
+        </p>
+
+        <div class="gallery__estate-grid">
+          <img src="images/estate-1.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 1">
+          <img src="images/estate-2.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 2">
+          <img src="images/estate-3.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 3">
+          <img src="images/estate-4.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 4">
+          <img src="images/estate-5.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 5">
+          <img src="images/estate-6.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 6">
+          <img src="images/estate-7.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 7">
+          <img src="images/estate-8.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 8">
+          <img src="images/estate-9.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 9">
+          <img src="images/estate-10.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 10">
+          <img src="images/estate-11.jpg" loading="lazy" alt="Collezione Estate: abito su misura in tessuto leggero, look 11">
+        </div>
       </div>
 
       <p class="gallery__cta reveal">
