@@ -11,7 +11,7 @@
   <meta name="description" content="Domenica 25 ottobre dalle 17:00, Gala degli Sposi da Sartoria Semolini a Foiano della Chiana: abiti da sposo e da sposa, aperitivo e un buono fino a 200€." />
   <link rel="canonical" href="https://sartoriasemolini.it/gala-degli-sposi-2026/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#2B2823" />
+  <meta name="theme-color" content="#F7F2EA" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -208,7 +208,7 @@
       --shadow-sm:    0 2px 12px rgba(43,40,35,0.08);
       --shadow-md:    0 6px 32px rgba(43,40,35,0.14);
 
-      --header-h:     64px;
+      --header-h:     56px;
     }
 
     body {
@@ -300,9 +300,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(43,40,35,0.97);
-      border-bottom: 1px solid rgba(196,164,86,0.28);
-      color: var(--ivory);
+      background: rgba(247,242,234,0.94);
+      -webkit-backdrop-filter: saturate(140%) blur(8px);
+      backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid rgba(196,164,86,0.4);
+      color: var(--text-mid);
     }
     .gh__inner {
       height: var(--header-h);
@@ -312,25 +314,24 @@
       gap: 1rem;
     }
     .gh__logo img {
-      width: 132px;
+      width: 118px;
       height: auto;
-      filter: brightness(0) invert(1);
     }
     .gh__countdown {
       flex: 1;
       text-align: center;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      color: rgba(247,242,234,0.86);
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      color: var(--text-mid);
     }
     .gh__countdown strong {
       font-family: var(--font-display);
-      font-size: 1.2rem;
+      font-size: 1.08rem;
       font-weight: 600;
-      color: var(--gold-light);
+      color: var(--dark-brown);
     }
     .gh__countdown .cd-short { display: none; }
-    .gh__cta { flex-shrink: 0; min-height: 42px; padding: 0.55rem 1.2rem; font-size: 0.68rem; }
+    .gh__cta { flex-shrink: 0; min-height: 36px; padding: 0.45rem 1.1rem; font-size: 0.64rem; letter-spacing: 0.12em; }
 
     /* CTA fissa in basso: solo smartphone */
     .mobile-cta {
@@ -338,13 +339,13 @@
     }
 
     @media (max-width: 860px) {
-      :root { --header-h: 56px; }
-      .gh__logo img { width: 112px; }
+      :root { --header-h: 48px; }
+      .gh__logo img { width: 96px; }
       .gh__cta { display: none; }
-      .gh__countdown { text-align: right; font-size: 0.8rem; }
+      .gh__countdown { text-align: right; font-size: 0.74rem; }
       .gh__countdown .cd-long { display: none; }
       .gh__countdown .cd-short { display: inline; }
-      .gh__countdown strong { font-size: 1.1rem; }
+      .gh__countdown strong { font-size: 1rem; }
 
       .mobile-cta {
         display: block;
@@ -1484,4 +1485,3 @@
   </script>
 </body>
 </html>
-
