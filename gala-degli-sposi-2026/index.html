@@ -1098,6 +1098,19 @@
                   <option value="6+">6 o più</option>
                 </select>
               </div>
+              <div class="field field--full">
+                <label for="provenienza">Come hai saputo dell'evento? <span class="req" aria-hidden="true">*</span></label>
+                <select id="provenienza" name="provenienza" required>
+                  <option value="" selected disabled>Seleziona</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Passaparola">Passaparola (amici, parenti)</option>
+                  <option value="In sartoria">In sartoria</option>
+                  <option value="Google">Ricerca su Google</option>
+                  <option value="Partner evento">Atelier della Sposa / Eventy Catering</option>
+                  <option value="Altro">Altro</option>
+                </select>
+              </div>
             </div>
 
             <div class="checks">
@@ -1454,7 +1467,7 @@
 
       // Dati in formato application/x-www-form-urlencoded (nessun preflight CORS)
       var data = new URLSearchParams();
-      ['evento', 'nome', 'cognome', 'telefono', 'email', 'persone', 'pagina',
+      ['evento', 'nome', 'cognome', 'telefono', 'email', 'persone', 'provenienza', 'pagina',
        'utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (k) {
         data.append(k, (form.elements[k].value || '').trim());
       });
