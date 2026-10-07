@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sartoria Semolini//Gala degli Sposi 2026//IT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:gala-degli-sposi-2026@sartoriasemolini.it
+DTSTAMP:20261007T000000Z
+DTSTART:20261025T160000Z
+SUMMARY:Gala degli Sposi 2026 – Sartoria Semolini
+LOCATION:Sartoria Semolini\, Via I Maggio 6\, 52045 Foiano della Chiana (AR
+ )
+DESCRIPTION:Domenica 25 ottobre 2026 dalle 17:00. Abiti da sposo e da cerim
+ onia\, abiti da sposa e aperitivo offerto. Info e WhatsApp: 340 4805120. h
+ ttps://sartoriasemolini.it/gala-degli-sposi-2026/
+URL:https://sartoriasemolini.it/gala-degli-sposi-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
