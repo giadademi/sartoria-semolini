@@ -2,31 +2,244 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- =====================================================
-       PAGINA SEGNAPOSTO – DA COMPLETARE PRIMA DELLA PUBBLICAZIONE
-       Nessun contenuto legale: il testo definitivo della Privacy Policy
-       va redatto/validato dal titolare del trattamento o dal consulente privacy
-       e incollato in questa pagina prima di pubblicare la landing del Gala.
-  ===================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Privacy Policy | Sartoria Semolini</title>
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Informativa sul trattamento dei dati personali del sito Sartoria Semolini e del modulo di iscrizione al Gala degli Sposi 2026." />
+  <link rel="canonical" href="https://sartoriasemolini.it/privacy-policy/" />
+  <meta name="theme-color" content="#F7F2EA" />
+
+  <!-- Font ospitati sul sito (nessuna connessione a Google) -->
+  <link rel="stylesheet" href="../fonts/fonts.css" />
+
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Georgia,serif;background:#F7F2EA;color:#2B2823;line-height:1.7;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 5%}
-    .box{max-width:620px;width:100%;background:#FDFAF5;border:1px solid rgba(155,123,82,.25);border-top:3px solid #C4A456;padding:2.4rem 1.6rem;text-align:center}
-    h1{font-weight:400;font-size:2rem;margin-bottom:1rem}
-    .warn{display:inline-block;font-family:Arial,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7A2E1A;background:#F8E9E3;border:1px solid #DDB5A6;padding:.5rem .8rem;margin-bottom:1.4rem}
-    p{font-family:Arial,sans-serif;font-size:.95rem;color:#6B5744}
-    a{color:#5C3D1E}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    :root {
+      --ivory: #F7F2EA; --beige-light: #EDE5D4; --beige: #D9CBAF;
+      --warm-brown: #9B7B52; --dark-brown: #5C3D1E; --antracite: #2B2823;
+      --gold: #C4A456; --gold-light: #D9BC7A; --white: #FDFAF5;
+      --text-dark: #2B2823; --text-mid: #6B5744; --text-light: #9B8570;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Raleway', sans-serif;
+      --transition: 0.35s ease;
+      --shadow-md: 0 6px 32px rgba(43,40,35,0.14);
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--beige-light);
+      color: var(--text-dark);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+
+    /* Header chiaro, come landing e pagina di ringraziamento */
+    .gh { background: var(--ivory); border-bottom: 1px solid rgba(196,164,86,0.4); }
+    .gh__inner { height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .gh__logo img { width: 116px; height: auto; display: block; }
+    .gh__back { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-brown); }
+    .gh__back:hover { color: var(--dark-brown); }
+
+    main { display: block; padding: 2.6rem 0 4rem; }
+    .doc {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid rgba(155,123,82,0.18);
+      border-top: 3px solid var(--gold);
+      border-radius: 2px;
+      box-shadow: var(--shadow-md);
+      padding: 2.2rem 1.3rem 2.6rem;
+    }
+    .doc__head { text-align: center; margin-bottom: 2rem; }
+    .doc__head h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.1rem, 7vw, 2.9rem);
+      line-height: 1.1;
+      color: var(--antracite);
+    }
+    .doc__updated {
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-brown);
+    }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin: 1.3rem auto 0; }
+
+    .doc__body { font-size: 0.97rem; font-weight: 300; color: var(--text-mid); }
+    .doc__body p { margin-bottom: 1rem; }
+    .doc__body h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.45rem;
+      line-height: 1.25;
+      color: var(--antracite);
+      margin: 2.2rem 0 0.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(155,123,82,0.16);
+    }
+    .doc__body h3 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--warm-brown);
+      margin: 1.6rem 0 0.6rem;
+    }
+    .doc__body ul { margin: 0 0 1.1rem 1.2rem; }
+    .doc__body li { margin-bottom: 0.35rem; }
+    .doc__body li::marker { color: var(--gold); }
+    .doc__body strong { font-weight: 600; color: var(--antracite); }
+    .doc__body a { color: var(--dark-brown); border-bottom: 1px solid var(--gold); }
+    .doc__body a:hover { color: var(--warm-brown); }
+
+    .footer { background: var(--antracite); padding: 1.8rem 0; color: rgba(247,242,234,0.45); font-size: 0.78rem; }
+    .footer__inner { display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; justify-content: space-between; }
+    .footer__legal { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .footer a:hover { color: var(--gold); }
+    .footer a[aria-current="page"] { color: var(--gold-light); }
+
+    @media (min-width: 640px) {
+      .doc { padding: 3rem 3.2rem 3.4rem; }
+    }
   </style>
 </head>
 <body>
-  <main class="box">
-    <p class="warn">DA COMPLETARE PRIMA DELLA PUBBLICAZIONE</p>
-    <h1>Privacy Policy</h1>
-    <p>Testo in preparazione. Per informazioni: <a href="mailto:sartoriasemolini@gmail.com">sartoriasemolini@gmail.com</a></p>
-    <p style="margin-top:1.2rem;"><a href="/">Torna al sito</a></p>
+
+  <header class="gh" role="banner">
+    <div class="container gh__inner">
+      <a href="/" class="gh__logo" aria-label="Sartoria Semolini – vai al sito">
+        <img src="../images/logo-semolini-trasparente.png" alt="Sartoria Semolini" width="744" height="237" />
+      </a>
+      <a href="/" class="gh__back">Torna al sito</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="doc">
+        <header class="doc__head">
+          <h1>Privacy Policy</h1>
+          <p class="doc__updated">Ultimo aggiornamento: ottobre 2026</p>
+          <div class="divider"></div>
+        </header>
+        <div class="doc__body">
+<p>La presente informativa descrive le modalità di trattamento dei dati personali degli utenti che visitano il sito <strong>www.sartoriasemolini.it</strong> e, in particolare, della pagina dedicata al <strong>Gala degli Sposi 2026</strong>, ai sensi del Regolamento (UE) 2016/679 (“GDPR”).</p>
+<h2>1. Titolare del trattamento</h2>
+<p>Il Titolare del trattamento è:</p>
+<p><strong>G.M.M. S.R.L.</strong></p>
+<p>Sede legale: <strong>Via Montefalco, 38 - 52100 Arezzo</strong></p>
+<p>P. IVA: <strong>02224770517</strong></p>
+<p>Codice Fiscale: <strong>02224770517</strong></p>
+<p>Email: <strong><a href="mailto:kety.gmmsrl@gmail.com">kety.gmmsrl@gmail.com</a></strong></p>
+<p>Telefono: <strong><a href="tel:+390575648813">0575 648813</a></strong></p>
+<p>Per qualsiasi richiesta relativa alla protezione dei dati personali è possibile contattare il Titolare all'indirizzo email sopra indicato.</p>
+<h2>2. Dati trattati</h2>
+<p>Durante la normale navigazione del sito possono essere trattati dati tecnici necessari al funzionamento e alla sicurezza del sito, quali indirizzo IP, tipo di browser, dispositivo utilizzato, data e ora della richiesta e altre informazioni tecniche generate dai sistemi informatici.</p>
+<p>Attraverso il modulo di iscrizione al Gala degli Sposi 2026 vengono raccolti:</p>
+<ul>
+<li>nome;</li>
+<li>cognome;</li>
+<li>numero di telefono;</li>
+<li>indirizzo email;</li>
+<li>numero di partecipanti;</li>
+<li>eventuale indicazione della provenienza della visita;</li>
+<li>eventuali parametri UTM;</li>
+<li>scelta relativa al consenso per comunicazioni promozionali.</li>
+</ul>
+<h2>3. Finalità e base giuridica del trattamento</h2>
+<h3>Iscrizione al Gala degli Sposi 2026</h3>
+<p>I dati forniti attraverso il modulo vengono utilizzati per:</p>
+<ul>
+<li>registrare l'iscrizione all'evento;</li>
+<li>organizzare la partecipazione al Gala;</li>
+<li>gestire la partecipazione alle attività previste durante l'evento;</li>
+<li>inviare informazioni, variazioni o promemoria relativi al Gala;</li>
+<li>gestire eventuali richieste dell'interessato.</li>
+</ul>
+<p>La base giuridica del trattamento è l'esecuzione di misure richieste dall'interessato e necessarie alla gestione dell'iscrizione e della partecipazione all'evento, ai sensi dell'art. 6, par. 1, lett. b) del Regolamento (UE) 2016/679.</p>
+<p>Il conferimento dei dati contrassegnati come obbligatori è necessario per completare l'iscrizione.</p>
+<h3>Comunicazioni promozionali</h3>
+<p>Solo se l'utente seleziona l'apposita casella facoltativa, nome, indirizzo email e/o numero di telefono potranno essere utilizzati per inviare informazioni, novità, iniziative e comunicazioni commerciali di Sartoria Semolini.</p>
+<p>La base giuridica è il consenso dell'interessato, ai sensi dell'art. 6, par. 1, lett. a) del GDPR.</p>
+<p>Il consenso è facoltativo e può essere revocato in qualsiasi momento scrivendo a:</p>
+<p><strong><a href="mailto:kety.gmmsrl@gmail.com">kety.gmmsrl@gmail.com</a></strong></p>
+<p>La mancata prestazione del consenso marketing non impedisce l'iscrizione al Gala.</p>
+<h2>4. Modalità del trattamento</h2>
+<p>I dati personali sono trattati con strumenti informatici e con misure organizzative adeguate a proteggerli da perdita, accesso non autorizzato, uso illecito o divulgazione indebita.</p>
+<p>Il Titolare applica il principio di minimizzazione e tratta esclusivamente i dati necessari alle finalità indicate.</p>
+<h2>5. Destinatari dei dati</h2>
+<p>I dati possono essere trattati da personale e collaboratori autorizzati del Titolare e, ove necessario, da fornitori di servizi tecnici utilizzati per il funzionamento del sito e per la gestione delle iscrizioni.</p>
+<p>In particolare, per la gestione del modulo di iscrizione vengono utilizzati servizi Google, tra cui:</p>
+<ul>
+<li>Google Apps Script;</li>
+<li>Google Sheets.</li>
+</ul>
+<p>Il sito è pubblicato tramite GitHub Pages.</p>
+<p>I dati non vengono venduti o ceduti a terzi per finalità proprie di marketing.</p>
+<p>Potranno essere comunicati a soggetti pubblici o autorità quando previsto da obblighi di legge.</p>
+<h2>6. Trasferimenti di dati fuori dallo Spazio Economico Europeo</h2>
+<p>L'utilizzo di servizi forniti da società internazionali, tra cui Google e GitHub, può comportare il trattamento di dati tramite infrastrutture situate anche fuori dallo Spazio Economico Europeo.</p>
+<p>Tali trattamenti avvengono secondo le garanzie previste dalla normativa applicabile in materia di protezione dei dati personali.</p>
+<h2>7. Periodo di conservazione</h2>
+<p>I dati raccolti per l'iscrizione al Gala degli Sposi 2026 saranno conservati per il tempo necessario alla gestione dell'evento e delle relative attività organizzative.</p>
+<p>In assenza di particolari necessità o obblighi di legge, i dati relativi all'iscrizione saranno cancellati o anonimizzati entro <strong>12 mesi dalla conclusione dell'evento</strong>.</p>
+<p>I dati utilizzati per finalità promozionali saranno conservati fino alla revoca del consenso e comunque per un periodo non superiore a <strong>24 mesi</strong>, salvo rinnovo del consenso o diversa necessità prevista dalla legge.</p>
+<h2>8. Diritti dell'interessato</h2>
+<p>L'interessato può esercitare, nei casi previsti dal GDPR, i seguenti diritti:</p>
+<ul>
+<li>ottenere conferma dell'esistenza o meno di dati personali che lo riguardano;</li>
+<li>ottenere l'accesso ai propri dati;</li>
+<li>richiedere la rettifica dei dati inesatti;</li>
+<li>richiedere la cancellazione dei dati;</li>
+<li>richiedere la limitazione del trattamento;</li>
+<li>opporsi al trattamento nei casi previsti;</li>
+<li>richiedere la portabilità dei dati, ove applicabile;</li>
+<li>revocare in qualsiasi momento il consenso precedentemente prestato.</li>
+</ul>
+<p>Per esercitare tali diritti è possibile scrivere a:</p>
+<p><strong><a href="mailto:kety.gmmsrl@gmail.com">kety.gmmsrl@gmail.com</a></strong></p>
+<p>La revoca del consenso non pregiudica la liceità del trattamento effettuato prima della revoca.</p>
+<h2>9. Reclamo all'Autorità di controllo</h2>
+<p>L'interessato ha inoltre il diritto di proporre reclamo al <strong>Garante per la protezione dei dati personali</strong> qualora ritenga che il trattamento dei propri dati avvenga in violazione della normativa applicabile.</p>
+<h2>10. Link e servizi di terze parti</h2>
+<p>Il sito può contenere collegamenti verso servizi e siti esterni, tra cui:</p>
+<ul>
+<li>Google Maps;</li>
+<li>Instagram;</li>
+<li>Facebook;</li>
+<li>WhatsApp;</li>
+<li>Eventy Catering;</li>
+<li>Atelier della Sposa;</li>
+<li>Steli d'Oro;</li>
+<li>altri siti dei partner dell'evento.</li>
+</ul>
+<p>Quando l'utente decide di aprire tali collegamenti lascia il sito Sartoria Semolini.</p>
+<p>Il trattamento dei dati effettuato dai siti esterni sarà disciplinato dalle informative privacy dei rispettivi fornitori.</p>
+<h2>11. Modifiche alla presente informativa</h2>
+<p>Il Titolare può aggiornare la presente Privacy Policy in caso di modifiche ai servizi offerti, agli strumenti utilizzati o alla normativa applicabile.</p>
+<p>La versione aggiornata sarà pubblicata su questa pagina con indicazione della data dell'ultimo aggiornamento.</p>
+        </div>
+      </article>
+    </div>
   </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>&copy; 2026 Sartoria Semolini · Via I Maggio 6, 52045 Foiano della Chiana (AR)</span>
+      <nav class="footer__legal" aria-label="Note legali">
+        <a href="/">Sito</a>
+        <a href="/gala-degli-sposi-2026/">Gala degli Sposi 2026</a>
+        <a href="/privacy-policy/" aria-current="page">Privacy Policy</a>
+        <a href="/cookie-policy/">Cookie Policy</a>
+      </nav>
+    </div>
+  </footer>
+
 </body>
 </html>
