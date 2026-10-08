@@ -17,10 +17,8 @@
        Raleway             = corpo testo leggibile
        Italianno           = logotipo corsivo
   ============================================= -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+  <!-- Font ospitati sul sito (nessuna connessione a fonts.googleapis.com / fonts.gstatic.com) -->
+  <link rel="stylesheet" href="fonts/fonts.css" />
   <style>
     /* =============================================
        RESET & BASE
@@ -332,7 +330,7 @@
       position: fixed;
       inset: 0;
       background: var(--logo-brown);
-      z-index: 999;
+      z-index: 1001; /* sopra la nav fissa (1000): la X di chiusura resta cliccabile */
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -812,6 +810,7 @@
     @media (max-width: 900px) {
       .split { padding: 5.5rem 0; }
       .split__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .split--reverse .split__grid { grid-template-columns: 1fr; } /* Camicie: una colonna anche su mobile (la regola desktop aveva priorità) */
       .split--reverse .split__media,
       .split--reverse .split__text { order: initial; }
       .split__media-row { max-width: 480px; margin: 0 auto; }
@@ -1613,6 +1612,8 @@
     ============================================= */
     @media (max-width: 600px) {
       .hero__buttons  { flex-direction: column; }
+      .hero__buttons .btn { white-space: normal; text-align: center; } /* evita lo sforamento a 390 px */
+      .gallery__cta .btn  { white-space: normal; text-align: center; max-width: 100%; } /* "Seguici su Instagram…": evita scroll orizzontale a 390 px */
       .services__grid { grid-template-columns: 1fr; }
       .gallery__grid  { grid-template-columns: 1fr; }
       .footer__top    { grid-template-columns: 1fr; }
@@ -1676,6 +1677,41 @@
       .gala-teaser__card { padding: 2.4rem 1.3rem; }
       .gala-teaser__script { font-size: 3rem; }
       .gala-teaser .btn { width: 100%; }
+    }
+
+    /* Riquadro "Come arrivare" al posto della mappa incorporata:
+       Google Maps si apre solo su richiesta dell'utente, in una nuova scheda. */
+    .map-card {
+      width: 100%;
+      min-width: 0;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(196,164,86,0.14) 0%, transparent 65%),
+        linear-gradient(160deg, var(--white) 0%, var(--beige-light) 100%);
+      border: 1px solid rgba(196,164,86,0.45);
+      border-radius: 2px;
+      color: var(--warm-brown);
+    }
+    .map-card__title {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--antracite);
+    }
+    .map-card__address {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-mid);
+      margin-bottom: 0.6rem;
     }
 
     /* Link note legali nel footer (aggiunto) */
@@ -2662,16 +2698,11 @@
         </div>
 
         <div class="reveal reveal-delay-2">
-          <div class="contact__map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2746.1253724464905!2d11.823677300000007!3d43.27254069999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132be46a7e0bf609%3A0x66658eae24474749!2sVia%20I%20Maggio%2C%206%2C%2052045%20Foiano%20della%20Chiana%20AR!5e1!3m2!1sit!2sit!4v1778431188548!5m2!1sit!2sit"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+          <div class="map-card">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p class="map-card__title">Come arrivare</p>
+            <p class="map-card__address">Sartoria Semolini<br>Via I Maggio 6, 52045 Foiano della Chiana (AR)</p>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Sartoria%20Semolini%2C%20Via%20I%20Maggio%206%2C%2052045%20Foiano%20della%20Chiana%20AR" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Apri in Google Maps</a>
           </div>
         </div>
 
