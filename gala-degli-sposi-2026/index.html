@@ -943,39 +943,57 @@
     }
     .map iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-    /* Riquadro "Come arrivare" al posto della mappa incorporata:
-       Google Maps si apre solo su richiesta dell'utente, in una nuova scheda. */
+    /* Riquadro "Come arrivare" con mappa illustrata statica (file SVG locale):
+       nessun iframe, nessuno script Google. Google Maps si apre solo al clic. */
     .map-card {
+      position: relative;
       width: 100%;
       min-width: 0;
-      aspect-ratio: 4 / 3;
+      min-height: 380px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.7rem;
-      padding: 2rem 1.5rem;
+      gap: 0.4rem;
+      padding: 3rem 1.5rem 2.5rem;
       text-align: center;
-      background:
-        radial-gradient(ellipse at 50% 35%, rgba(196,164,86,0.14) 0%, transparent 65%),
-        linear-gradient(160deg, var(--white) 0%, var(--beige-light) 100%);
+      background-color: #EFE7D8;
+      background-image: url('../images/mappa-come-arrivare.svg');
+      background-size: cover;
+      background-position: center;
       border: 1px solid rgba(196,164,86,0.45);
       border-radius: 2px;
-      color: var(--warm-brown);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .map-card__pin {
+      display: block;
+      line-height: 0;
+      filter: drop-shadow(0 4px 6px rgba(43,40,35,0.28));
+    }
+    .map-card__panel {
+      background: rgba(253,250,245,0.93);
+      border: 1px solid rgba(196,164,86,0.4);
+      border-radius: 2px;
+      box-shadow: 0 6px 22px rgba(43,40,35,0.12);
+      padding: 1rem 1.2rem 1.2rem;
+      max-width: 290px;
+      width: 100%;
     }
     .map-card__title {
       font-family: var(--font-display);
-      font-size: 1.9rem;
+      font-size: 1.7rem;
       font-weight: 300;
       line-height: 1.1;
       color: var(--antracite);
+      margin-bottom: 0.35rem;
     }
     .map-card__address {
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.55;
       color: var(--text-mid);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.9rem;
     }
 
     @media (min-width: 900px) {
@@ -1406,11 +1424,13 @@
           </div>
 
           <!-- 11. COME ARRIVARE – nessuna mappa incorporata: Google Maps si apre solo al click -->
-          <div class="map-card">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <p class="map-card__title">Come arrivare</p>
-            <p class="map-card__address">Sartoria Semolini<br>Via I Maggio 6, 52045 Foiano della Chiana (AR)</p>
+          <div class="map-card" role="group" aria-label="Mappa: Sartoria Semolini, Via I Maggio 6, Foiano della Chiana">
+            <span class="map-card__pin"><svg width="44" height="56" viewBox="0 0 44 56" aria-hidden="true"><path d="M22 2C11 2 3 10.4 3 21c0 13.5 19 33 19 33s19-19.5 19-33C41 10.4 33 2 22 2z" fill="#5C3D1E" stroke="#FDFAF5" stroke-width="2.5"/><circle cx="22" cy="21" r="7" fill="#D9BC7A"/></svg></span>
+            <div class="map-card__panel">
+              <p class="map-card__title">Come arrivare</p>
+            <p class="map-card__address">Sartoria Semolini<br>Via I Maggio 6<br>52045 Foiano della Chiana (AR)</p>
             <a href="https://www.google.com/maps/search/?api=1&amp;query=Sartoria%20Semolini%2C%20Via%20I%20Maggio%206%2C%2052045%20Foiano%20della%20Chiana%20AR" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Apri in Google Maps</a>
+            </div>
           </div>
         </div>
       </div>
