@@ -2,31 +2,200 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- =====================================================
-       PAGINA SEGNAPOSTO – DA COMPLETARE PRIMA DELLA PUBBLICAZIONE
-       Nessun contenuto legale: il testo definitivo della Cookie Policy
-       va redatto/validato dal titolare del trattamento o dal consulente privacy
-       e incollato in questa pagina prima di pubblicare la landing del Gala.
-  ===================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Cookie Policy | Sartoria Semolini</title>
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Informativa sull'uso di cookie e tecnologie simili sul sito Sartoria Semolini." />
+  <link rel="canonical" href="https://sartoriasemolini.it/cookie-policy/" />
+  <meta name="theme-color" content="#F7F2EA" />
+
+  <!-- Font ospitati sul sito (nessuna connessione a Google) -->
+  <link rel="stylesheet" href="../fonts/fonts.css" />
+
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Georgia,serif;background:#F7F2EA;color:#2B2823;line-height:1.7;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 5%}
-    .box{max-width:620px;width:100%;background:#FDFAF5;border:1px solid rgba(155,123,82,.25);border-top:3px solid #C4A456;padding:2.4rem 1.6rem;text-align:center}
-    h1{font-weight:400;font-size:2rem;margin-bottom:1rem}
-    .warn{display:inline-block;font-family:Arial,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7A2E1A;background:#F8E9E3;border:1px solid #DDB5A6;padding:.5rem .8rem;margin-bottom:1.4rem}
-    p{font-family:Arial,sans-serif;font-size:.95rem;color:#6B5744}
-    a{color:#5C3D1E}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    :root {
+      --ivory: #F7F2EA; --beige-light: #EDE5D4; --beige: #D9CBAF;
+      --warm-brown: #9B7B52; --dark-brown: #5C3D1E; --antracite: #2B2823;
+      --gold: #C4A456; --gold-light: #D9BC7A; --white: #FDFAF5;
+      --text-dark: #2B2823; --text-mid: #6B5744; --text-light: #9B8570;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Raleway', sans-serif;
+      --transition: 0.35s ease;
+      --shadow-md: 0 6px 32px rgba(43,40,35,0.14);
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--beige-light);
+      color: var(--text-dark);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+
+    /* Header chiaro, come landing e pagina di ringraziamento */
+    .gh { background: var(--ivory); border-bottom: 1px solid rgba(196,164,86,0.4); }
+    .gh__inner { height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .gh__logo img { width: 116px; height: auto; display: block; }
+    .gh__back { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-brown); }
+    .gh__back:hover { color: var(--dark-brown); }
+
+    main { display: block; padding: 2.6rem 0 4rem; }
+    .doc {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid rgba(155,123,82,0.18);
+      border-top: 3px solid var(--gold);
+      border-radius: 2px;
+      box-shadow: var(--shadow-md);
+      padding: 2.2rem 1.3rem 2.6rem;
+    }
+    .doc__head { text-align: center; margin-bottom: 2rem; }
+    .doc__head h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.1rem, 7vw, 2.9rem);
+      line-height: 1.1;
+      color: var(--antracite);
+    }
+    .doc__updated {
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-brown);
+    }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin: 1.3rem auto 0; }
+
+    .doc__body { font-size: 0.97rem; font-weight: 300; color: var(--text-mid); }
+    .doc__body p { margin-bottom: 1rem; }
+    .doc__body h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.45rem;
+      line-height: 1.25;
+      color: var(--antracite);
+      margin: 2.2rem 0 0.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(155,123,82,0.16);
+    }
+    .doc__body h3 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--warm-brown);
+      margin: 1.6rem 0 0.6rem;
+    }
+    .doc__body ul { margin: 0 0 1.1rem 1.2rem; }
+    .doc__body li { margin-bottom: 0.35rem; }
+    .doc__body li::marker { color: var(--gold); }
+    .doc__body strong { font-weight: 600; color: var(--antracite); }
+    .doc__body a { color: var(--dark-brown); border-bottom: 1px solid var(--gold); }
+    .doc__body a:hover { color: var(--warm-brown); }
+
+    .footer { background: var(--antracite); padding: 1.8rem 0; color: rgba(247,242,234,0.45); font-size: 0.78rem; }
+    .footer__inner { display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; justify-content: space-between; }
+    .footer__legal { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .footer a:hover { color: var(--gold); }
+    .footer a[aria-current="page"] { color: var(--gold-light); }
+
+    @media (min-width: 640px) {
+      .doc { padding: 3rem 3.2rem 3.4rem; }
+    }
   </style>
 </head>
 <body>
-  <main class="box">
-    <p class="warn">DA COMPLETARE PRIMA DELLA PUBBLICAZIONE</p>
-    <h1>Cookie Policy</h1>
-    <p>Testo in preparazione. Per informazioni: <a href="mailto:sartoriasemolini@gmail.com">sartoriasemolini@gmail.com</a></p>
-    <p style="margin-top:1.2rem;"><a href="/">Torna al sito</a></p>
+
+  <header class="gh" role="banner">
+    <div class="container gh__inner">
+      <a href="/" class="gh__logo" aria-label="Sartoria Semolini – vai al sito">
+        <img src="../images/logo-semolini-trasparente.png" alt="Sartoria Semolini" width="744" height="237" />
+      </a>
+      <a href="/" class="gh__back">Torna al sito</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="doc">
+        <header class="doc__head">
+          <h1>Cookie Policy</h1>
+          <p class="doc__updated">Ultimo aggiornamento: ottobre 2026</p>
+          <div class="divider"></div>
+        </header>
+        <div class="doc__body">
+<p>La presente Cookie Policy descrive l'utilizzo di cookie e tecnologie simili sul sito:</p>
+<p><strong>www.sartoriasemolini.it</strong></p>
+<h2>1. Cosa sono i cookie</h2>
+<p>I cookie sono piccoli file di testo che possono essere memorizzati sul dispositivo dell'utente durante la navigazione di un sito web.</p>
+<p>I cookie possono essere utilizzati per consentire il corretto funzionamento del sito, memorizzare preferenze o, in alcuni casi, raccogliere informazioni sull'utilizzo del sito.</p>
+<h2>2. Cookie tecnici</h2>
+<p>Il sito può utilizzare esclusivamente cookie o strumenti tecnici strettamente necessari al corretto funzionamento, alla sicurezza e alla visualizzazione delle pagine.</p>
+<p>Per tali strumenti non è richiesto il consenso dell'utente.</p>
+<h2>3. Cookie di profilazione e strumenti pubblicitari</h2>
+<p>Attualmente il sito non utilizza:</p>
+<ul>
+<li>Google Analytics;</li>
+<li>Meta Pixel;</li>
+<li>sistemi di profilazione pubblicitaria;</li>
+<li>strumenti di remarketing;</li>
+<li>cookie pubblicitari.</li>
+</ul>
+<p>Non vengono quindi utilizzati strumenti di profilazione al primo accesso.</p>
+<p>Qualora tali servizi vengano introdotti in futuro, saranno attivati soltanto dopo aver acquisito il consenso dell'utente, ove richiesto dalla normativa.</p>
+<p>La presente Cookie Policy sarà conseguentemente aggiornata.</p>
+<h2>4. Google Maps</h2>
+<p>Il sito non carica automaticamente mappe Google Maps incorporate.</p>
+<p>Per visualizzare la posizione di Sartoria Semolini, l'utente può scegliere volontariamente di utilizzare il pulsante:</p>
+<p><strong>“Apri in Google Maps”</strong></p>
+<p>che apre il servizio Google Maps in una nuova scheda.</p>
+<p>Solo in quel momento l'utente accede al servizio esterno di Google e il trattamento dei dati sarà disciplinato dalle condizioni e informative di Google.</p>
+<h2>5. Google Fonts</h2>
+<p>I caratteri grafici utilizzati dal sito vengono, ove tecnicamente possibile, caricati direttamente dal server del sito e non da server esterni di Google.</p>
+<p>In questo modo la visualizzazione dei font non comporta una connessione automatica ai server Google.</p>
+<h2>6. Collegamenti a siti esterni</h2>
+<p>Il sito contiene collegamenti verso servizi esterni, tra cui:</p>
+<ul>
+<li>Google Maps;</li>
+<li>Instagram;</li>
+<li>Facebook;</li>
+<li>WhatsApp;</li>
+<li>Eventy Catering;</li>
+<li>Atelier della Sposa;</li>
+<li>Steli d'Oro;</li>
+<li>altri siti dei partner dell'evento.</li>
+</ul>
+<p>Tali collegamenti sono normali link.</p>
+<p>Il semplice caricamento delle pagine di Sartoria Semolini non deve comportare il caricamento automatico di script o cookie appartenenti a questi soggetti.</p>
+<p>Quando l'utente decide di cliccare su un collegamento esterno, il trattamento dei dati sarà disciplinato dalle informative del relativo fornitore.</p>
+<h2>7. Gestione dei cookie</h2>
+<p>L'utente può comunque gestire, cancellare o bloccare i cookie attraverso le impostazioni del proprio browser.</p>
+<p>Le modalità variano a seconda del browser utilizzato.</p>
+<p>L'eventuale rifiuto o blocco di cookie non tecnici non deve impedire la normale navigazione del sito.</p>
+<h2>8. Modifiche alla presente Cookie Policy</h2>
+<p>La presente Cookie Policy potrà essere aggiornata qualora vengano introdotti, modificati o rimossi servizi esterni o strumenti di tracciamento.</p>
+<p>La versione più recente sarà sempre disponibile su questa pagina.</p>
+        </div>
+      </article>
+    </div>
   </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>&copy; 2026 Sartoria Semolini · Via I Maggio 6, 52045 Foiano della Chiana (AR)</span>
+      <nav class="footer__legal" aria-label="Note legali">
+        <a href="/">Sito</a>
+        <a href="/gala-degli-sposi-2026/">Gala degli Sposi 2026</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/cookie-policy/" aria-current="page">Cookie Policy</a>
+      </nav>
+    </div>
+  </footer>
+
 </body>
 </html>
